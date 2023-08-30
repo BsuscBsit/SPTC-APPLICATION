@@ -1,0 +1,102 @@
+﻿<Window x:Class="SPTC_APPLICATION.View.Pages.MainBody"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Icon="../../View/Images/icons/logo.ico"
+        xmlns:local="clr-namespace:SPTC_APPLICATION.View.Pages"
+        mc:Ignorable="d"
+        Title="Sapang Palay Tricycle Cooperative" Width="1280" Height="720" MinWidth="1000" MinHeight="600">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="Beige">
+
+        <Rectangle Height="40" Stroke="#FEF301" Fill="#FEF301"  VerticalAlignment="Top" Width="NaN"/>
+        <Grid x:Name="sidePanel" HorizontalAlignment="Left" Width="214" Background="White" Margin="0,40,0,0">
+            <Ellipse Width="48" Height="48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,6,0,0">
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="userImage" ImageSource="../Images/icons/person.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <Label x:Name="username" Content="General Manager" HorizontalAlignment="Left" Margin="59,17,0,0" VerticalAlignment="Top" Foreground="Gray"
+               FontWeight="SemiBold"
+               FontSize="16"
+               FontFamily="Inter" Width="151"/>
+            <Rectangle Height="1" Margin="5,60,5,0" Stroke="DarkGray" VerticalAlignment="Top"/>
+            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Top" Margin="12,81,12,0" BorderThickness="0" Click="Button_Click">
+                <Grid Width="200">
+                    <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/home.png"/>
+                    <Label Content="Dashboard" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="49,0,0,0"/>
+                </Grid>
+            </Button>
+            <Label Content="MENU" HorizontalAlignment="Left" Margin="12,148,0,0" VerticalAlignment="Top" Foreground="Gray"
+                FontWeight="SemiBold"
+                FontSize="16"
+                FontFamily="Inter" Width="151"/>
+            <Grid x:Name="menu" Margin="0,177,0,158">
+                <Rectangle Height="1" Margin="5,45,5,0" Stroke="DarkGray" VerticalAlignment="Top"/>
+                <Rectangle Height="1" Margin="5,95,5,0" Stroke="DarkGray" VerticalAlignment="Top"/>
+                <Rectangle Height="1" Margin="5,145,5,0" Stroke="DarkGray" VerticalAlignment="Top"/>
+                <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Top" Margin="15,0,9,0" BorderThickness="0" Click="Button_Click">
+                    <Grid Width="200">
+                        <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/paper.png"/>
+                        <Label Content="Franchise" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,0,0,0"/>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Top" Margin="15,50,9,0" BorderThickness="0" Click="Button_Click">
+                    <Grid Width="200">
+                        <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/operator.png"/>
+                        <Label Content="Operator" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,4,0,0"/>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Top" Margin="15,100,9,0" BorderThickness="0" Click="Button_Click">
+                    <Grid Width="200">
+                        <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/tricycle.png"/>
+                        <Label Content="Driver" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,0,0,0"/>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Top" Margin="15,150,9,0" BorderThickness="0" Click="Button_Click">
+                    <Grid Width="200">
+                        <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/group.png"/>
+                        <Label Content="Board Members" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,4,0,0"/>
+                    </Grid>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid x:Name="mainPanel" HorizontalAlignment="Right" Width="1061" Margin="0, 40, 0,0">
+            <Button x:Name="btnGererate" Content="GENERATE ID"
+                        Width="175"
+                        Height="40"
+                        HorizontalAlignment="right"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource GenericButton}" Margin="0,30,30,0" Click="btnGererate_Click"/>
+            <Button x:Name="btnTest" Content="TEST"
+                        Width="175"
+                        Height="40"
+                        HorizontalAlignment="right"
+                        VerticalAlignment="Top"
+                        Style="{StaticResource GenericButton}" Margin="0,30,230,0" Click="btnTest_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

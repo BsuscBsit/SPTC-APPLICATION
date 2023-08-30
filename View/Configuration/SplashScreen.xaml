@@ -1,0 +1,19 @@
+﻿<Window x:Name="window" x:Class="SPTC_APPLICATION.View.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SPTC_APPLICATION.View"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Icon="../../View/Images/icons/logo.ico"
+       Title="Splash Screen" Height="494" Width="784" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+    <Grid x:Name="grid" Opacity="1" Cursor="AppStarting" Margin="10,10,10,10">
+
+        <TextBox x:Name="tbDebugLog" HorizontalAlignment="Center" Margin="0,0,0,10" TextWrapping="Wrap" Height="18" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}" VerticalContentAlignment="Center" Opacity="0.2"/>
+        <ProgressBar x:Name="pbLoading" Height="10" Margin="0,0,0,33" VerticalAlignment="Bottom" UseLayoutRounding="True">
+           
+        </ProgressBar>
+
+    </Grid>
+</Window>
