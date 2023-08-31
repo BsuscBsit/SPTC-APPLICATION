@@ -228,11 +228,11 @@ namespace SPTC_APPLICATION.View
                     SPTC_APPLICATION.Objects.Image sign = null;
                     if (hasPhoto)
                     {
-                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv-{name.firstname}");
+                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv - {name.firstname}");
                     }
                     if (hasSign) 
                     {
-                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign-{name.firstname}");
+                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign  -{name.firstname}");
                     }
 
 
@@ -257,11 +257,11 @@ namespace SPTC_APPLICATION.View
                     SPTC_APPLICATION.Objects.Image sign = null;
                     if (hasPhoto)
                     {
-                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv-{name.firstname}");
+                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Optr - {name.firstname}");
                     }
                     if (hasSign)
                     {
-                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign-{name.firstname}");
+                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign - {name.firstname}");
                     }
 
 
