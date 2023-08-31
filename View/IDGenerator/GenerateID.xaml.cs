@@ -16,7 +16,6 @@ namespace SPTC_APPLICATION.View
     /// </summary>
     public partial class GenerateID : Window
     {
-        bool cameraOpen = false;
         BitmapSource lastCapturedImage = null;
         bool hasPhoto = false;
         bool hasSign = false;
@@ -29,18 +28,30 @@ namespace SPTC_APPLICATION.View
         {
             InitializeComponent();
             EventLogger.Post("VIEW :: ID GENERATE Window");
-           
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            btnStartPad.IsEnabled = false;
+            if (videoDevices.Count == 0)
+            {
+                EventLogger.Post("ERR :: No video devices found.");
+                btnStartCam.IsEnabled = false;
+                return;
+            }
+
+            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.NewFrame += new NewFrameEventHandler(videoSource_NewFrame);
+
+            
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-
-            if (cameraOpen)
-            {
-                cameraOpen = false;
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
+            if (videoSource != null){
+                if (videoSource.IsRunning)
+                {
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
             }
         }
 
@@ -76,23 +87,7 @@ namespace SPTC_APPLICATION.View
 
         private void InitializeCamera()
         {
-            // Enumerate available video devices (webcams)
-            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            if (videoDevices.Count == 0)
-            {
-                MessageBox.Show("No video devices found.");
-                return;
-            }
-
-            // Initialize the video capture device
-            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
-
-            // Set the NewFrame event handler to capture frames
-            videoSource.NewFrame += new NewFrameEventHandler(videoSource_NewFrame);
-
-            // Start capturing from the camera
-            videoSource.Start();
+           if(videoSource != null) videoSource.Start();
         }
 
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -121,54 +116,58 @@ namespace SPTC_APPLICATION.View
 
         private void BtnStartCam_Click(object sender, RoutedEventArgs e)
         {
-            if (!cameraOpen)
+            if (videoSource != null)
             {
-                try
+                if (!videoSource.IsRunning)
                 {
-                    ((System.Windows.Controls.Button)sender).Content = "Capture Image";
-                    pbCameraOpen.Visibility = Visibility.Visible;
-                    pbCameraOpen.Value = pbCameraOpen.Minimum;
-                    pbCameraOpen.IsIndeterminate = true;
-                    cameraOpen = true;
+                    try
+                    {
+                        ((System.Windows.Controls.Button)sender).Content = "Capture Image";
+                        pbCameraOpen.Visibility = Visibility.Visible;
+                        pbCameraOpen.Value = pbCameraOpen.Minimum;
+                        pbCameraOpen.IsIndeterminate = true;
 
-                    InitializeCamera();
 
+                        InitializeCamera();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        pbCameraOpen.Visibility = Visibility.Hidden;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    pbCameraOpen.Visibility = Visibility.Hidden;
-                }
-            }
-            else
-            {
-                cameraOpen = false;
 
-                if (lastCapturedImage != null)
-                {
-                    imgIDPic.Source = lastCapturedImage;
-                }
-                hasPhoto = true;
 
-                // Stop the camera when it's no longer needed
-                if (videoSource != null && videoSource.IsRunning)
-                {
-                    videoSource.SignalToStop();
-                    videoSource.WaitForStop();
-                    videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
+                    if (lastCapturedImage != null)
+                    {
+                        imgIDPic.Source = lastCapturedImage;
+                    }
+                    hasPhoto = true;
+
+                    if (videoSource != null && videoSource.IsRunning)
+                    {
+                        videoSource.SignalToStop();
+                        videoSource.WaitForStop();
+                        videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
+                    }
+                    pbCameraOpen.Value = 100;
+                    pbCameraOpen.IsIndeterminate = false;
                 }
-                pbCameraOpen.Value = 100;
-                pbCameraOpen.IsIndeterminate = false;
             }
         }
 
         private void btnBrowseIDPic_Click(object sender, RoutedEventArgs e)
         {
-            if (cameraOpen)
+            if (videoSource != null)
             {
-                cameraOpen = false;
-                videoSource.SignalToStop();
-                videoSource.WaitForStop();
+                if (videoSource.IsRunning)
+                {
+                    videoSource.SignalToStop();
+                    videoSource.WaitForStop();
+                }
             }
             var openFileDialog = new OpenFileDialog();
 

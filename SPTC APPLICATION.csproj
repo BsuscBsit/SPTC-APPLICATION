@@ -88,6 +88,9 @@
   <PropertyGroup>
     <StartupObject>SPTC_APPLICATION.App</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
@@ -297,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dtb_sptc.sql" />
+    <Resource Include="logo.ico" />
     <Resource Include="View\Images\album.png" />
     <Resource Include="View\Images\bg_dialog.png" />
     <Resource Include="View\Images\bg_login.png" />
