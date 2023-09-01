@@ -19,33 +19,33 @@ namespace SPTC_APPLICATION.View
         {
             if (type == General.OPERATOR)
             {
-                string mi = (franchise.LOperator.name.middlename.Length > 0) ? franchise.LOperator.name.middlename[0].ToString() + ". " : "";
-                lblName.Content = franchise.LOperator.name.firstname + " " + mi + franchise.LOperator.name.lastname;
+                string mi = (franchise.Operator.name.middlename.Length > 0) ? franchise.Operator.name.middlename[0].ToString() + ". " : "";
+                lblName.Content = franchise.Operator.name.firstname + " " + mi + franchise.Operator.name.lastname;
 
                 lblLicense.Content = franchise.licenceNO;
                 lblBodyNum.Content = franchise.bodynumber;
-                lblEmePer.Content = franchise.LOperator.emergencyPerson;
-                lblAddressBuilding.Content = franchise.LOperator.address.addressline1;
-                lblAddressStreet.Content = franchise.LOperator.address.addressline2;
-                lblContact.Content = franchise.LOperator.emergencyContact;
-                if (franchise.LOperator.signature != null)
+                lblEmePer.Content = franchise.Operator.emergencyPerson;
+                lblAddressBuilding.Content = franchise.Operator.address.addressline1;
+                lblAddressStreet.Content = franchise.Operator.address.addressline2;
+                lblContact.Content = franchise.Operator.emergencyContact;
+                if (franchise.Operator.signature != null)
                 {
-                    imgSign.Source = franchise.LOperator.signature.GetSource();
+                    imgSign.Source = franchise.Operator.signature.GetSource();
                 }
             } else
             {
-                string mi = (franchise.lDriverDay.name.middlename.Length > 0) ? franchise.lDriverDay.name.middlename[0].ToString() + ". " : "";
-                lblName.Content = franchise.lDriverDay.name.firstname + " " + mi + franchise.lDriverDay.name.lastname;
+                string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
+                lblName.Content = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;
 
                 lblLicense.Content = franchise.licenceNO;
                 lblBodyNum.Content = franchise.bodynumber;
-                lblEmePer.Content = franchise.lDriverDay.emergencyPerson;
-                lblAddressBuilding.Content = franchise.lDriverDay.address.addressline1;
-                lblAddressStreet.Content = franchise.lDriverDay.address.addressline2;
-                lblContact.Content = franchise.lDriverDay.emergencyContact;
-                if (franchise.lDriverDay.signature != null)
+                lblEmePer.Content = franchise.Driver_day.emergencyPerson;
+                lblAddressBuilding.Content = franchise.Driver_day.address.addressline1;
+                lblAddressStreet.Content = franchise.Driver_day.address.addressline2;
+                lblContact.Content = franchise.Driver_day.emergencyContact;
+                if (franchise.Driver_day.signature != null)
                 {
-                    imgSign.Source =franchise.lDriverDay.signature.GetSource();
+                    imgSign.Source =franchise.Driver_day.signature.GetSource();
                 }
             }
         }

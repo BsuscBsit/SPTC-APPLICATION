@@ -76,14 +76,14 @@ namespace SPTC_APPLICATION.View
         //Problematic because of Objects
         private async void UpdateList()
         {
-            List<Driver> fetchedData = await Task.Run(() =>
+            List<Franchise> fetchedData = await Task.Run(() =>
             {
                 using (var connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
 
-                    List<Driver> drivers = new List<Driver>();
-                    drivers.AddRange(Retrieve.GetData<Driver>(Table.DRIVER, Select.ALL, Where.ALL_NOTDELETED));
+                    List<Franchise> drivers = new List<Franchise>();
+                    drivers.AddRange(Retrieve.GetData<Franchise>(Table.FRANCHISE, Select.ALL, Where.ALL_NOTDELETED));
 
                     return drivers;
 
@@ -97,8 +97,9 @@ namespace SPTC_APPLICATION.View
         {
             if (dgList.SelectedIndex >= 0 && dgList.SelectedIndex != dgList.Items.Count - 1)
             {
-                Driver tmp = ((Driver)dgList.SelectedItem);
-                tmpImage.Source = tmp.image.GetSource();
+                Franchise tmp = ((Franchise)dgList.SelectedItem);
+
+                tmpImage.Source = tmp.Operator?.image.GetSource();
             }
         }
 

@@ -56,12 +56,12 @@ namespace SPTC_APPLICATION.Database
             if (id == -1)
             {
                 InsertDataToDatabase();
-                EventLogger.Post($"DTB :: Insert into ({tableName})");
+               
             }
             else
             {
                 UpdateDataInDatabase();
-                EventLogger.Post($"DTB :: Update ({tableName}) pk: {id}");
+                
             }
         }
 
@@ -121,25 +121,40 @@ namespace SPTC_APPLICATION.Database
                     {
                         command.ExecuteNonQuery();
                         id = (int)command.LastInsertedId;
+                        EventLogger.Post($"DTB :: Insert into ({tableName}) pk: {id}");
                     }
                     catch (MySqlException ex)
                     {
                         if (ex.Number == 1062)
                         {
-                            id = GetExistingRecordId();
-                            EventLogger.Post($"DTB :: duplicate entry. id={GetExistingRecordId()}");
-                            this.Save();
+                            if (tableName == Table.NAME)
+                            {
+                                // Pass the uniqueAttributes parameter for the "NAME" table
+                                id = GetExistingRecordId(fieldValues);
+                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
+                                this.Save();
+                            }
+                            else
+                            {
+                                // For other tables, call GetExistingRecordId without the parameter
+                                id = GetExistingRecordId();
+
+                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
+                                this.Save();
+                            }
                         }
                         else
                         {
-                            EventLogger.Post($"Exception: {ex.Message}");
+                            EventLogger.Post($"DTB :: Insert Exception: {ex.Message}");
                         }
                     }
+
+
                 }
             }
             catch (MySqlException ex)
             {
-                EventLogger.Post($"DTB :: Exception : {ex.Message}");
+                EventLogger.Post($"DTB :: Insert Main Exception : {ex.Message}");
             }
         }
 
@@ -163,24 +178,43 @@ namespace SPTC_APPLICATION.Database
                     }
 
                     command.ExecuteNonQuery();
+                    EventLogger.Post($"DTB :: Update ({tableName}) pk: {id}");
                 }
             }
             catch (MySqlException ex)
             {
-                EventLogger.Post($"DTB :: Exception : {ex.Message}");
+                EventLogger.Post($"DTB :: Update Main Exception : {ex.Message}");
             }
         }
 
-        private int GetExistingRecordId()
+        private int GetExistingRecordId(Dictionary<string, object> uniqueAttributes = null)
         {
             try
             {
                 using (MySqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
-                    string query = $"SELECT id FROM {tableName} WHERE {GetUniqueAttributeName()} = @{GetUniqueAttributeName()}";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue($"@{GetUniqueAttributeName()}", fieldValues[GetUniqueAttributeName()]);
+                    MySqlCommand command;
+                    if (uniqueAttributes != null && uniqueAttributes.Count > 0)
+                    {
+                        // Handle tables with unique sets
+                        string whereClause = string.Join(" AND ", uniqueAttributes.Keys.Select(key => $"{key} = @{key}"));
+                        string query = $"SELECT id FROM {tableName} WHERE {whereClause}";
+                        command = new MySqlCommand(query, connection);
+
+                        // Add parameters for each field in the unique set
+                        foreach (var kvp in uniqueAttributes)
+                        {
+                            command.Parameters.AddWithValue($"@{kvp.Key}", kvp.Value);
+                        }
+                    }
+                    else
+                    {
+                        // Handle tables without unique sets
+                        string query = $"SELECT id FROM {tableName} WHERE {GetUniqueAttributeName()} = @{GetUniqueAttributeName()}";
+                        command = new MySqlCommand(query, connection);
+                        command.Parameters.AddWithValue($"@{GetUniqueAttributeName()}", fieldValues[GetUniqueAttributeName()]);
+                    }
 
                     object result = command.ExecuteScalar();
 
@@ -189,7 +223,7 @@ namespace SPTC_APPLICATION.Database
             }
             catch (MySqlException ex)
             {
-                EventLogger.Post($"DTB :: Exception : {ex.Message}");
+                EventLogger.Post($"DTB :: Existing Record Exception : {ex.Message}");
             }
             return -1;
         }
@@ -198,6 +232,5 @@ namespace SPTC_APPLICATION.Database
         {
             return fieldValues.Keys.FirstOrDefault();
         }
-
     }
 }

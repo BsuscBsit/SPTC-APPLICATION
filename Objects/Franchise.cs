@@ -10,10 +10,10 @@ namespace SPTC_APPLICATION.Objects
     {
         public int id { get; private set; }
         public string bodynumber { get; set; }
-        public Operator LOperator { get; set; } 
+        public Operator Operator { get; set; } 
         public string licenceNO;
-        public Driver lDriverDay { get; set; } 
-        public Driver lDriverNight { get; set; } 
+        public Driver Driver_day { get; set; } 
+        public Driver Driver_night { get; set; } 
         public Name owner { get; set; }
         public Franchise lastFranchiseId { get; set; }
 
@@ -22,9 +22,9 @@ namespace SPTC_APPLICATION.Objects
         public Franchise()
         {
             franchise = new Upsert(Table.FRANCHISE, -1);
-            LOperator = null;
-            lDriverDay = null; 
-            lDriverNight = null; 
+            Operator = null;
+            Driver_day = null; 
+            Driver_night = null; 
             owner = null; 
             lastFranchiseId = null;
         }
@@ -33,9 +33,9 @@ namespace SPTC_APPLICATION.Objects
 
         public Franchise(MySqlDataReader reader)
         {
-            LOperator = null;
-            lDriverDay = null;
-            lDriverNight = null;
+            Operator = null;
+            Driver_day = null;
+            Driver_night = null;
             owner = null;
             lastFranchiseId = null;
             franchise = null;
@@ -50,11 +50,11 @@ namespace SPTC_APPLICATION.Objects
         private void Populate(int operatorID, int driverDayID, int driverNightID, int nameID, int lastFranchiseID)
         {
             if (operatorID >= 0)
-                this.LOperator = (Retrieve.GetData<Operator>(Table.OPERATOR, Select.ALL, Where.ID_, new MySqlParameter("id", operatorID))).FirstOrDefault();
+                this.Operator = (Retrieve.GetData<Operator>(Table.OPERATOR, Select.ALL, Where.ID_, new MySqlParameter("id", operatorID))).FirstOrDefault();
             if (driverDayID >= 0)
-                this.lDriverDay = (Retrieve.GetData<Driver>(Table.DRIVER, Select.ALL, Where.ID_, new MySqlParameter("id", driverDayID))).FirstOrDefault();
+                this.Driver_day = (Retrieve.GetData<Driver>(Table.DRIVER, Select.ALL, Where.ID_, new MySqlParameter("id", driverDayID))).FirstOrDefault();
             if (driverNightID >= 0)
-                this.lDriverNight = (Retrieve.GetData<Driver>(Table.DRIVER, Select.ALL, Where.ID_, new MySqlParameter("id", driverNightID))).FirstOrDefault();
+                this.Driver_night = (Retrieve.GetData<Driver>(Table.DRIVER, Select.ALL, Where.ID_, new MySqlParameter("id", driverNightID))).FirstOrDefault();
             if (nameID >= 0)
                 this.owner = (Retrieve.GetData<Name>(Table.NAME, Select.ALL, Where.ID_, new MySqlParameter("id", nameID))).FirstOrDefault();
             if (lastFranchiseID >= 0)
@@ -64,9 +64,9 @@ namespace SPTC_APPLICATION.Objects
         public bool WriteInto(string bodynumber, Operator lOperator, Driver lDriverDay, Driver lDriverNight, string licenceNO)
         {
             this.bodynumber = bodynumber;
-            this.LOperator = lOperator;
-            this.lDriverDay = lDriverDay;
-            this.lDriverNight = lDriverNight;
+            this.Operator = lOperator;
+            this.Driver_day = lDriverDay;
+            this.Driver_night = lDriverNight;
             this.licenceNO = licenceNO;
             return true;
         }
@@ -78,17 +78,17 @@ namespace SPTC_APPLICATION.Objects
             }
             franchise.Insert(Field.BODY_NUMBER, bodynumber);
             franchise.Insert(Field.LICENSE_NO, licenceNO);
-            if (this.LOperator != null)
+            if (this.Operator != null)
             {
-                franchise.Insert(Field.OPERATOR_ID, this.LOperator.Save());
+                franchise.Insert(Field.OPERATOR_ID, this.Operator.Save());
             }
-            if (this.lDriverDay != null)
+            if (this.Driver_day != null)
             {
-                franchise.Insert(Field.DRIVER_DAY_ID, this.lDriverDay.Save());
+                franchise.Insert(Field.DRIVER_DAY_ID, this.Driver_day.Save());
             }
-            if (this.lDriverNight != null)
+            if (this.Driver_night != null)
             {
-                franchise.Insert(Field.DRIVER_NIGHT_ID, this.lDriverNight.Save());
+                franchise.Insert(Field.DRIVER_NIGHT_ID, this.Driver_night.Save());
             }
             if (this.owner != null)
             {

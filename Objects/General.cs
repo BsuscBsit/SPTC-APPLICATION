@@ -412,4 +412,69 @@ namespace SPTC_APPLICATION.Objects
         }
     }
 
+    public class ViolationType
+    {
+        public int id { get; private set; }
+        public string title;
+        public string details;
+        public int numOfDays;
+        public bool isForDriver;
+
+        private Upsert violationType;
+        public ViolationType()
+        {
+            violationType = new Upsert(Table.VIOLATION_TYPE, -1);
+        }
+
+        public ViolationType(string title, string details, int numOfDays, bool isForDriver)
+        {
+            this.title = title;
+            this.details = details;
+            this.numOfDays = numOfDays;
+            this.isForDriver = isForDriver;
+        }
+
+        public ViolationType(MySqlDataReader reader)
+        {
+            this.id = Retrieve.GetValueOrDefault<int>(reader, Field.ID);
+            this.title = Retrieve.GetValueOrDefault<string>(reader, Field.TITLE);
+            this.details = Retrieve.GetValueOrDefault<string>(reader, Field.DETAILS);
+            this.numOfDays = Retrieve.GetValueOrDefault<int>(reader, Field.NUM_OF_DAYS);
+            this.isForDriver = Retrieve.GetValueOrDefault<bool>(reader, Field.IS_FOR_DRIVER);
+        }
+
+        public int Save()
+        {
+            if(violationType == null)
+            {
+                violationType = new Upsert(Table.VIOLATION_TYPE, id);
+            }
+
+            violationType.Insert(Field.TITLE, title);
+            violationType.Insert(Field.DETAILS, details);
+            violationType.Insert(Field.NUM_OF_DAYS, numOfDays);
+            violationType.Insert(Field.IS_FOR_DRIVER, isForDriver);
+            violationType.Save();
+            id = violationType.id;
+
+            return id;
+        }
+
+        public override string ToString()
+        {
+            return title ?? string.Empty;
+        }
+
+        public bool Delete()
+        {
+            if (violationType == null)
+            {
+                violationType = new Upsert(Table.VIOLATION_TYPE, id);
+                violationType.Insert(Field.ISDELETED, true);
+                violationType.Save();
+                return true;
+            }
+            return false;
+        }
+    }
 }

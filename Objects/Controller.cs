@@ -162,9 +162,9 @@ namespace SPTC_APPLICATION.Objects
             {
 
                 AppState.USER = employee;
-                (new PrintPreview()).Show();
+                //(new PrintPreview()).Show();
                 //(new Test()).Show();
-                //(new MainBody()).Show();
+                (new MainBody()).Show();
                 EventLogger.Post($"User :: Login Success: USER({username})");
                 window.Close();
             }

@@ -221,6 +221,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Objects\Resource.cs" />
+    <Compile Include="Objects\Violation.cs" />
     <Compile Include="View\Configuration\DatabaseConfigInput.xaml.cs">
       <DependentUpon>DatabaseConfigInput.xaml</DependentUpon>
     </Compile>

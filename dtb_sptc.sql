@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2023 at 08:33 AM
+-- Generation Time: Sep 01, 2023 at 02:53 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -302,9 +302,10 @@ CREATE TABLE `tbl_violation` (
 
 CREATE TABLE `tbl_violation_type` (
   `id` int(11) NOT NULL,
-  `violation_terms` varchar(1000) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
   `num_of_days` int(11) NOT NULL DEFAULT 0,
-  `violator_entity` varchar(10) NOT NULL DEFAULT 'DRIVER',
+  `is_for_driver` tinyint(1) NOT NULL DEFAULT 0,
   `isDeleted` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -347,7 +348,8 @@ ALTER TABLE `tbl_id_history`
 -- Indexes for table `tbl_image`
 --
 ALTER TABLE `tbl_image`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `image_name` (`image_name`);
 
 --
 -- Indexes for table `tbl_loan_ledger`
@@ -413,13 +415,13 @@ ALTER TABLE `tbl_violation_type`
 -- AUTO_INCREMENT for table `tbl_address`
 --
 ALTER TABLE `tbl_address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_driver`
 --
 ALTER TABLE `tbl_driver`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_employee`
@@ -431,7 +433,7 @@ ALTER TABLE `tbl_employee`
 -- AUTO_INCREMENT for table `tbl_franchise`
 --
 ALTER TABLE `tbl_franchise`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_id_history`
@@ -443,7 +445,7 @@ ALTER TABLE `tbl_id_history`
 -- AUTO_INCREMENT for table `tbl_image`
 --
 ALTER TABLE `tbl_image`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_loan_ledger`
@@ -461,7 +463,7 @@ ALTER TABLE `tbl_long_term_loan_ledger`
 -- AUTO_INCREMENT for table `tbl_name`
 --
 ALTER TABLE `tbl_name`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_operator`

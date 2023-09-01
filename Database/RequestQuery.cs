@@ -54,6 +54,7 @@ namespace SPTC_APPLICATION.Database
         public static string LOAN = "tbl_loan_ledger";
         public static string SHARE_CAPITAL = "tbl_share_capital_ledger";
         public static string LONG_TERM_LOAN = "tbl_long_term_loan_ledger";
+        public static string VIOLATION_TYPE = "tbl_violation_type";
 
     }
     public static class Select
@@ -82,6 +83,7 @@ namespace SPTC_APPLICATION.Database
         public static string DETAILS = "details";
         public static string START_DATE = "start_date";
         public static string END_DATE = "end_date";
+        public static string TITLE = "title";
 
         // Foreign Keys
         public static string EMPLOYEE_ID = "user_id";
@@ -137,7 +139,6 @@ namespace SPTC_APPLICATION.Database
         public static string ISDAYSHIFT = "isDayShift";
 
         // POSITION
-        public static string TITLE = "title";
         public static string CAN_CREATE = "can_create";
         public static string CAN_EDIT = "can_edit";
         public static string CAN_DELETE = "can_delete";
@@ -167,6 +168,9 @@ namespace SPTC_APPLICATION.Database
         public static string PROCESSING_FEE = "processing_fee";
         public static string CAPITAL_BUILDUP = "capital_buildup";
 
+        //VIOLATION_TYPES
+        public static string IS_FOR_DRIVER = "is_for_driver";
+        public static string NUM_OF_DAYS = "num_of_days";
     }
 
     public enum CRUDControl

@@ -23,21 +23,21 @@ namespace SPTC_APPLICATION.View
 
             if (type == General.OPERATOR)
             {
-                string mi = (franchise.LOperator.name.middlename.Length > 0) ? franchise.LOperator.name.middlename[0].ToString() + ". " : "";
-                lblName.Text = franchise.LOperator.name.firstname + " " + mi + franchise.LOperator.name.lastname;
+                string mi = (franchise.Operator.name.middlename.Length > 0) ? franchise.Operator.name.middlename[0].ToString() + ". " : "";
+                lblName.Text = franchise.Operator.name.firstname + " " + mi + franchise.Operator.name.lastname;
                 lblPosition.Text = type.ToString();
-                if (franchise.LOperator.image != null)
+                if (franchise.Operator.image != null)
                 {
-                    imgID.Source = franchise.LOperator.image.GetSource();
+                    imgID.Source = franchise.Operator.image.GetSource();
                 }
             } else
             {
-                string mi = (franchise.lDriverDay.name.middlename.Length > 0) ? franchise.lDriverDay.name.middlename[0].ToString() + ". " : "";
-                lblName.Text = franchise.lDriverDay.name.firstname + " " + mi + franchise.lDriverDay.name.lastname;
+                string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
+                lblName.Text = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;
                 lblPosition.Text = "DRIVER";
-                if (franchise.lDriverDay.image != null)
+                if (franchise.Driver_day.image != null)
                 {
-                    imgID.Source = franchise.lDriverDay.image.GetSource();
+                    imgID.Source = franchise.Driver_day.image.GetSource();
                 }
             }
 
