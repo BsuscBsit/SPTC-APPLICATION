@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SPTC_APPLICATION.Objects
 {
-    internal class Violation
+    public class Violation
     {
 
     }
