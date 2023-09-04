@@ -1,7 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using SPTC_APPLICATION.Database;
-using System;
+﻿using System;
 using System.Linq;
+using MySql.Data.MySqlClient;
+using SPTC_APPLICATION.Database;
 
 namespace SPTC_APPLICATION.Objects
 {
@@ -77,7 +77,7 @@ namespace SPTC_APPLICATION.Objects
             }
             employee.Save();
             id = employee.id;
-            
+
             return id;
         }
 

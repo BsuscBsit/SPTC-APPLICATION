@@ -1,7 +1,7 @@
-﻿using SPTC_APPLICATION.Objects;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.View
 {
@@ -82,7 +82,7 @@ namespace SPTC_APPLICATION.View
             image.Source = renderTargetBitmap;
             page.Close();
 
-            return image; 
+            return image;
         }
 
         public System.Windows.Controls.Image RenderBackID()

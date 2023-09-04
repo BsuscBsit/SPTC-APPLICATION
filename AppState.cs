@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SPTC_APPLICATION.Objects;
+﻿using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION
 {

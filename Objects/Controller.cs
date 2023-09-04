@@ -1,11 +1,10 @@
-﻿using SPTC_APPLICATION.Database;
+﻿using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using SPTC_APPLICATION.Database;
 using SPTC_APPLICATION.Properties;
 using SPTC_APPLICATION.View;
 using SPTC_APPLICATION.View.Pages;
-using System.Net.PeerToPeer;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace SPTC_APPLICATION.Objects
 {

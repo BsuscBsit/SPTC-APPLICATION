@@ -1,8 +1,8 @@
-﻿using MySql.Data.MySqlClient;
-using SPTC_APPLICATION.Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using MySql.Data.MySqlClient;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.Database
 {
@@ -56,12 +56,12 @@ namespace SPTC_APPLICATION.Database
             if (id == -1)
             {
                 InsertDataToDatabase();
-               
+
             }
             else
             {
                 UpdateDataInDatabase();
-                
+
             }
         }
 

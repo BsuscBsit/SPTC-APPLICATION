@@ -1,7 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using SPTC_APPLICATION.Database;
-using System;
+﻿using System;
 using System.Linq;
+using MySql.Data.MySqlClient;
+using SPTC_APPLICATION.Database;
 
 namespace SPTC_APPLICATION.Objects
 {
@@ -68,7 +68,7 @@ namespace SPTC_APPLICATION.Objects
                 this.address = (Retrieve.GetData<Address>(Table.ADDRESS, Select.ALL, Where.ID_, new MySqlParameter("id", laddress))).FirstOrDefault();
             if (limage >= 0)
                 this.image = (Retrieve.GetData<Image>(Table.IMAGE, Select.ALL, Where.ID_, new MySqlParameter("id", limage))).FirstOrDefault();
-            if (lsignature >= 0) 
+            if (lsignature >= 0)
                 this.signature = (Retrieve.GetData<Image>(Table.IMAGE, Select.ALL, Where.ID_, new MySqlParameter("id", lsignature))).FirstOrDefault();
         }
         public int Save()
@@ -100,7 +100,7 @@ namespace SPTC_APPLICATION.Objects
             }
             mDriver.Save();
             id = mDriver.id;
-            
+
             return id;
         }
 

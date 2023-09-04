@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Xml.Linq;
+﻿using System.Linq;
 using MySql.Data.MySqlClient;
 using SPTC_APPLICATION.Database;
 
@@ -10,10 +8,10 @@ namespace SPTC_APPLICATION.Objects
     {
         public int id { get; private set; }
         public string bodynumber { get; set; }
-        public Operator Operator { get; set; } 
+        public Operator Operator { get; set; }
         public string licenceNO;
-        public Driver Driver_day { get; set; } 
-        public Driver Driver_night { get; set; } 
+        public Driver Driver_day { get; set; }
+        public Driver Driver_night { get; set; }
         public Name owner { get; set; }
         public Franchise lastFranchiseId { get; set; }
 
@@ -23,12 +21,12 @@ namespace SPTC_APPLICATION.Objects
         {
             franchise = new Upsert(Table.FRANCHISE, -1);
             Operator = null;
-            Driver_day = null; 
-            Driver_night = null; 
-            owner = null; 
+            Driver_day = null;
+            Driver_night = null;
+            owner = null;
             lastFranchiseId = null;
         }
-        
+
 
 
         public Franchise(MySqlDataReader reader)
@@ -72,7 +70,7 @@ namespace SPTC_APPLICATION.Objects
         }
         public int Save()
         {
-            if(franchise == null)
+            if (franchise == null)
             {
                 franchise = new Upsert(Table.FRANCHISE, id);
             }
@@ -100,7 +98,7 @@ namespace SPTC_APPLICATION.Objects
             }
             franchise.Save();
             id = franchise.id;
-            
+
             return id;
         }
 

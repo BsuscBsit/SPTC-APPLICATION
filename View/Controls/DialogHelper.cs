@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-
-namespace SPTC_APPLICATION.View
+﻿namespace SPTC_APPLICATION.View
 {
     internal class DialogHelper
     {

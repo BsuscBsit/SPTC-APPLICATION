@@ -9,14 +9,14 @@ namespace SPTC_APPLICATION.Objects
     {
 
         public int id { get; private set; }
-        public Name name { get;  set; }
-        public Address address { get;  set; }
-        public Image image { get;  set; }
-        public Image signature { get;  set; }
-        public string remarks { get;  set; }
-        public DateTime birthday { get;  set; }
-        public string emergencyPerson { get;  set; }
-        public string emergencyContact { get;  set; }
+        public Name name { get; set; }
+        public Address address { get; set; }
+        public Image image { get; set; }
+        public Image signature { get; set; }
+        public string remarks { get; set; }
+        public DateTime birthday { get; set; }
+        public string emergencyPerson { get; set; }
+        public string emergencyContact { get; set; }
 
         private Upsert mOperator;
 
@@ -68,7 +68,7 @@ namespace SPTC_APPLICATION.Objects
 
         public int Save()
         {
-            if(mOperator == null)
+            if (mOperator == null)
             {
                 mOperator = new Upsert(Table.OPERATOR, id);
             }
@@ -94,7 +94,7 @@ namespace SPTC_APPLICATION.Objects
             }
             mOperator.Save();
             id = mOperator.id;
-            
+
             return id;
         }
 

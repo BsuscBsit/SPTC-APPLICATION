@@ -1,5 +1,5 @@
-﻿using SPTC_APPLICATION.Properties;
-using System.Windows;
+﻿using System.Windows;
+using SPTC_APPLICATION.Properties;
 
 namespace SPTC_APPLICATION.View
 {

@@ -1,15 +1,9 @@
-﻿
-using MySql.Data.MySqlClient;
-using SPTC_APPLICATION.Database;
-using SPTC_APPLICATION.Objects;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using System.Windows.Media;
+using SPTC_APPLICATION.Database;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.View
 {

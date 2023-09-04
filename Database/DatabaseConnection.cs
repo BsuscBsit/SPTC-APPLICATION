@@ -1,7 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Reflection;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace SPTC_APPLICATION.Database
 {

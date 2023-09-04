@@ -316,6 +316,8 @@
     <Resource Include="View\Images\icons\cam.png" />
     <Resource Include="View\Images\icons\group.png" />
     <Resource Include="View\Images\icons\home.png" />
+	<Resource Include="View\Images\icons\logout.png" />
+	<Resource Include="View\Images\icons\settings.png" />
     <Resource Include="View\Images\icons\logo.ico" />
     <Resource Include="View\Images\icons\operator.png" />
     <Resource Include="View\Images\icons\pad.png" />

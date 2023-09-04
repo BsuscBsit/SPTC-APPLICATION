@@ -1,8 +1,5 @@
-﻿using SPTC_APPLICATION.Objects;
-using System.IO;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.View
 {
@@ -32,7 +29,8 @@ namespace SPTC_APPLICATION.View
                 {
                     imgSign.Source = franchise.Operator.signature.GetSource();
                 }
-            } else
+            }
+            else
             {
                 string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
                 lblName.Content = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;
@@ -45,7 +43,7 @@ namespace SPTC_APPLICATION.View
                 lblContact.Content = franchise.Driver_day.emergencyContact;
                 if (franchise.Driver_day.signature != null)
                 {
-                    imgSign.Source =franchise.Driver_day.signature.GetSource();
+                    imgSign.Source = franchise.Driver_day.signature.GetSource();
                 }
             }
         }

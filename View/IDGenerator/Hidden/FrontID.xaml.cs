@@ -1,7 +1,4 @@
 ﻿using SPTC_APPLICATION.Objects;
-using System.IO;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace SPTC_APPLICATION.View
 {
@@ -30,7 +27,8 @@ namespace SPTC_APPLICATION.View
                 {
                     imgID.Source = franchise.Operator.image.GetSource();
                 }
-            } else
+            }
+            else
             {
                 string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
                 lblName.Text = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;

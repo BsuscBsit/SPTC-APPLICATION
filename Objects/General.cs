@@ -1,10 +1,8 @@
 ﻿using System.IO;
-using System.Windows.Media.Imaging;
 using System.Windows.Media;
-using System.Xml.Linq;
+using System.Windows.Media.Imaging;
 using MySql.Data.MySqlClient;
 using SPTC_APPLICATION.Database;
-using static SPTC_APPLICATION.Objects.Ledger;
 
 namespace SPTC_APPLICATION.Objects
 {
@@ -93,7 +91,7 @@ namespace SPTC_APPLICATION.Objects
             name.Insert("suffix", suffix);
             name.Save();
             id = name.id;
-            
+
             return id;
         }
 
@@ -325,7 +323,7 @@ namespace SPTC_APPLICATION.Objects
             image.Insert(Field.IMAGE_SOURCE, picture);
             image.Save();
             id = image.id;
-            
+
             return id;
         }
         public override string ToString()
@@ -390,7 +388,7 @@ namespace SPTC_APPLICATION.Objects
             position.Insert(Field.CAN_DELETE, canDelete);
             position.Save();
             id = position.id;
-            
+
             return id;
         }
 
@@ -445,7 +443,7 @@ namespace SPTC_APPLICATION.Objects
 
         public int Save()
         {
-            if(violationType == null)
+            if (violationType == null)
             {
                 violationType = new Upsert(Table.VIOLATION_TYPE, id);
             }

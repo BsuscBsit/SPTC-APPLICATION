@@ -1,13 +1,12 @@
-﻿using AForge.Video;
-using AForge.Video.DirectShow;
-using Microsoft.Win32;
-using SPTC_APPLICATION.Objects;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using Microsoft.Win32;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.View
 {
@@ -40,13 +39,14 @@ namespace SPTC_APPLICATION.View
             videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.NewFrame += new NewFrameEventHandler(videoSource_NewFrame);
 
-            
+
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (videoSource != null){
+            if (videoSource != null)
+            {
                 if (videoSource.IsRunning)
                 {
                     videoSource.SignalToStop();
@@ -87,7 +87,7 @@ namespace SPTC_APPLICATION.View
 
         private void InitializeCamera()
         {
-           if(videoSource != null) videoSource.Start();
+            if (videoSource != null) videoSource.Start();
         }
 
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
@@ -104,14 +104,14 @@ namespace SPTC_APPLICATION.View
                     IntPtr.Zero,
                     Int32Rect.Empty,
                     BitmapSizeOptions.FromEmptyOptions());
-                
-                    // Display the captured frame in imgIDPic
-                    imgIDPic.Source = bitmapSource;
 
-                    // Dispose of the frame to release resources
-                    frame.Dispose();
-                });
-            
+                // Display the captured frame in imgIDPic
+                imgIDPic.Source = bitmapSource;
+
+                // Dispose of the frame to release resources
+                frame.Dispose();
+            });
+
         }
 
         private void BtnStartCam_Click(object sender, RoutedEventArgs e)
@@ -219,7 +219,7 @@ namespace SPTC_APPLICATION.View
                 if (isDriver)
                 {
                     Driver @obj = new Driver();
-                
+
 
                     string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
                     Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
@@ -230,7 +230,7 @@ namespace SPTC_APPLICATION.View
                     {
                         image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv - {name.firstname}");
                     }
-                    if (hasSign) 
+                    if (hasSign)
                     {
                         sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign  -{name.firstname}");
                     }
@@ -250,7 +250,7 @@ namespace SPTC_APPLICATION.View
                 else
                 {
                     Operator @obj = new Operator();
-                    string prefix =(cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
+                    string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
                     Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
                     Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
                     SPTC_APPLICATION.Objects.Image image = null;
@@ -285,6 +285,6 @@ namespace SPTC_APPLICATION.View
 
         }
 
-        
+
     }
 }

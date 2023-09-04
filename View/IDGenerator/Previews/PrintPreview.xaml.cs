@@ -1,10 +1,10 @@
-﻿using SPTC_APPLICATION.Objects;
-using SPTC_APPLICATION.View.IDGenerator.Hidden;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using SPTC_APPLICATION.Objects;
+using SPTC_APPLICATION.View.IDGenerator.Hidden;
 
 namespace SPTC_APPLICATION.View
 {

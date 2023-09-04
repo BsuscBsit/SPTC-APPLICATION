@@ -11,7 +11,7 @@ namespace SPTC_APPLICATION.Objects
 {
     public class Resource
     {
-    public static class BitmapConversion
+        public static class BitmapConversion
         {
             public static BitmapSource ToBitmapSource(Bitmap bitmap)
             {

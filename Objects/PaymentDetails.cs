@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using SPTC_APPLICATION.Database;
 
@@ -14,7 +11,7 @@ namespace SPTC_APPLICATION.Objects
         public T ledger { get; set; }
         public bool isDownPayment { get; set; }
         public bool isDivPat { get; set; }
-        public DateTime date { get;  set; }
+        public DateTime date { get; set; }
         public string referenceNo { get; set; }
         public double deposit { get; set; }
         public double penalties { get; set; }
@@ -24,15 +21,15 @@ namespace SPTC_APPLICATION.Objects
 
         private string getLedgerType()
         {
-            if(ledger is Objects.Ledger.Loan)
+            if (ledger is Objects.Ledger.Loan)
             {
                 return Table.LOAN;
             }
-            if(ledger is Objects.Ledger.ShareCapital)
+            if (ledger is Objects.Ledger.ShareCapital)
             {
                 return Table.SHARE_CAPITAL;
             }
-            if(ledger is Objects.Ledger.LongTermLoan)
+            if (ledger is Objects.Ledger.LongTermLoan)
             {
                 return Table.LONG_TERM_LOAN;
             }
@@ -78,8 +75,9 @@ namespace SPTC_APPLICATION.Objects
 
         private void Populate(int ledgerID)
         {
-            if (ledgerID >= 0) {
-                
+            if (ledgerID >= 0)
+            {
+
                 this.ledger = (Retrieve.GetData<T>(getLedgerType(), Select.ALL, Where.ID_, new MySqlParameter("id", ledgerID))).FirstOrDefault();
             }
         }
@@ -113,7 +111,7 @@ namespace SPTC_APPLICATION.Objects
             paymentDetails.Insert(Field.REMARKS, remarks);
             paymentDetails.Save();
             id = paymentDetails.id;
-           
+
             return id;
         }
 
