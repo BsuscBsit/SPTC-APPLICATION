@@ -82,6 +82,15 @@
                 </Button>
                 
             </Grid>
+            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,59" BorderThickness="0" Click="Button_Click">
+                <Grid Width="200">
+                    <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/settings.png"/>
+                    <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,4,0,0"/>
+                </Grid>
+            </Button>
             <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,9" BorderThickness="0" Click="Button_Click">
                 <Grid Width="200">
                     <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/logout.png"/>
