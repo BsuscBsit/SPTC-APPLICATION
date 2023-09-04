@@ -148,35 +148,7 @@ namespace SPTC_APPLICATION.Objects
 
 
         // LOGIN CONTROL (TMP: to PrintPreview)
-        public static void Login(string username, string password, Window window)
-        {
-            dynamic result = Retrieve.Login(username, password);
-
-            if (result is View.ControlWindow controlWindow)
-            {
-                EventLogger.Post($"User :: Login Failed: USER({username})");
-                //DEBUG THIS ON OTHER PC
-                //CreateEmployee(); //result in password :: 751cb3f4aa17c36186f4856c8982bf27
-            }
-            else if (result is Employee employee)
-            {
-
-                AppState.USER = employee;
-                //(new PrintPreview()).Show();
-                //(new Test()).Show();
-                (new MainBody()).Show();
-                EventLogger.Post($"User :: Login Success: USER({username})");
-                window.Close();
-            }
-        }
-
-        public static void Logout(Window window)
-        {
-            AppState.USER = null;
-            EventLogger.Post($"User :: Logout Success");
-            window.Close();
-            (new Login()).Show();
-        }
+        
 
         //FOR DEBUG PURPOSE
         public static void CreateEmployee()

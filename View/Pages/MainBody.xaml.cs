@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using SPTC_APPLICATION.Objects;
 
 namespace SPTC_APPLICATION.View.Pages
 {
@@ -33,6 +34,16 @@ namespace SPTC_APPLICATION.View.Pages
         {
 
             (new PrintPreview()).Show();
+        }
+
+        private void Btn_Logout(object sender, RoutedEventArgs e)
+        {
+            AppState.Logout(this);
+        }
+
+        private void Btn_Settings(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

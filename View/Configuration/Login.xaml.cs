@@ -20,7 +20,7 @@ namespace SPTC_APPLICATION.View
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Controller.Login(cbUser.Text, pbPassword.Password, this);
+            AppState.Login(cbUser.Text, pbPassword.Password, this);
         }
 
         // Styling

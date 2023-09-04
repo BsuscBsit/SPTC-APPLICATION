@@ -6,7 +6,7 @@
         Icon="../../View/Images/icons/logo.ico"
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.Pages"
         mc:Ignorable="d"
-        Title="Sapang Palay Tricycle Cooperative" Width="1280" Height="720" MinWidth="1000" MinHeight="600">
+        Title="Sapang Palay Tricycle Cooperative" Width="1280" Height="720" MinWidth="1000" MinHeight="600" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -82,7 +82,7 @@
                 </Button>
                 
             </Grid>
-            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,59" BorderThickness="0" Click="Button_Click">
+            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,59" BorderThickness="0" Click="Btn_Settings">
                 <Grid Width="200">
                     <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/settings.png"/>
                     <Label Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
@@ -91,7 +91,7 @@
                         FontFamily="Inter" Margin="55,4,0,0"/>
                 </Grid>
             </Button>
-            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,9" BorderThickness="0" Click="Button_Click">
+            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,9" BorderThickness="0" Click="Btn_Logout">
                 <Grid Width="200">
                     <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/logout.png"/>
                     <Label Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
