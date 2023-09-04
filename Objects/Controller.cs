@@ -2,6 +2,7 @@
 using SPTC_APPLICATION.Properties;
 using SPTC_APPLICATION.View;
 using SPTC_APPLICATION.View.Pages;
+using System.Net.PeerToPeer;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -168,6 +169,14 @@ namespace SPTC_APPLICATION.Objects
                 EventLogger.Post($"User :: Login Success: USER({username})");
                 window.Close();
             }
+        }
+
+        public static void Logout(Window window)
+        {
+            AppState.USER = null;
+            EventLogger.Post($"User :: Logout Success");
+            window.Close();
+            (new Login()).Show();
         }
 
         //FOR DEBUG PURPOSE

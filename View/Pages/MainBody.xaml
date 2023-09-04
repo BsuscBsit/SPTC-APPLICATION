@@ -15,7 +15,6 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid Background="Beige">
-
         <Rectangle Height="40" Stroke="#FEF301" Fill="#FEF301"  VerticalAlignment="Top" Width="NaN"/>
         <Grid x:Name="sidePanel" HorizontalAlignment="Left" Width="214" Background="White" Margin="0,40,0,0">
             <Ellipse Width="48" Height="48" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,6,0,0">
@@ -81,7 +80,17 @@
                         FontFamily="Inter" Margin="55,4,0,0"/>
                     </Grid>
                 </Button>
+                
             </Grid>
+            <Button Style="{StaticResource GenericButton}" Height="40" VerticalAlignment="Bottom" Margin="15,0,9,9" BorderThickness="0" Click="Button_Click">
+                <Grid Width="200">
+                    <Image Height="32" Width="32" HorizontalAlignment="Left" Margin="15,4,0,4" Source="../Images/icons/logout.png"/>
+                    <Label Content="Logout" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"
+                        FontWeight="SemiBold"
+                        FontSize="16"
+                        FontFamily="Inter" Margin="55,4,0,0"/>
+                </Grid>
+            </Button>
         </Grid>
         <Grid x:Name="mainPanel" HorizontalAlignment="Right" Width="1061" Margin="0, 40, 0,0">
             <Button x:Name="btnGererate" Content="GENERATE ID"
