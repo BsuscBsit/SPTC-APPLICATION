@@ -9,6 +9,10 @@
         <TabControl x:Name="tabControl">
             <TabItem Header="Test VideoCapture Signature pad">
                 <Grid x:Name="inageRender" Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="289*"/>
+                        <ColumnDefinition Width="505*"/>
+                    </Grid.ColumnDefinitions>
                     <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click"/>
                 </Grid>
             </TabItem>
@@ -23,8 +27,8 @@
             <TabItem Header="Test List" Height="20" VerticalAlignment="Bottom">
                 <Grid x:Name="list2" Background="#FFE5E5E5">
                     <TextBox x:Name="tbResult" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                    <Grid>
-                        <DataGrid x:Name="dgList" Margin="0,34,0,0 " Focusable="True" SelectionChanged="dgList_SelectionChanged_1"/>
+                    <Grid x:Name="DatagridList">
+                        
                     </Grid>
                     <Image x:Name="tmpImage" HorizontalAlignment="Left" Height="100" Margin="632,18,0,0" VerticalAlignment="Top" Width="100"/>
                 </Grid>

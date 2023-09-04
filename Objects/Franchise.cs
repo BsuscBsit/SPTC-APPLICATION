@@ -9,7 +9,7 @@ namespace SPTC_APPLICATION.Objects
         public int id { get; private set; }
         public string bodynumber { get; set; }
         public Operator Operator { get; set; }
-        public string licenceNO;
+        public string licenceNO { get; set; }
         public Driver Driver_day { get; set; }
         public Driver Driver_night { get; set; }
         public Name owner { get; set; }

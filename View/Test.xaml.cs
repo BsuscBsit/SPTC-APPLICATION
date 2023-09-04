@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using SPTC_APPLICATION.Database;
 using SPTC_APPLICATION.Objects;
+using SPTC_APPLICATION.View.Controls;
 
 namespace SPTC_APPLICATION.View
 {
@@ -76,26 +77,41 @@ namespace SPTC_APPLICATION.View
                 {
                     connection.Open();
 
-                    List<Franchise> drivers = new List<Franchise>();
-                    drivers.AddRange(Retrieve.GetData<Franchise>(Table.FRANCHISE, Select.ALL, Where.ALL_NOTDELETED));
+                    List<Franchise> franchises = new List<Franchise>();
+                    franchises.AddRange(Retrieve.GetData<Franchise>(Table.FRANCHISE, Select.ALL, Where.ALL_NOTDELETED));
 
-                    return drivers;
-
+                    return franchises;
                 }
             });
 
-            dgList.ItemsSource = fetchedData;
+            // Assuming you have a List<Franchise> fetchedData
+
+            DataGrid dataGrid = new DataGrid();
+            DataGridHelper<Franchise> dataGridHelper = new DataGridHelper<Franchise>(dataGrid);
+            List<ColumnConfiguration> columnConfigurations = new List<ColumnConfiguration>
+            {
+                new ColumnConfiguration("bodynumber", "Body Number"),
+                new ColumnConfiguration("licenceNO", "Plate Number"),
+                new ColumnConfiguration("Operator", "Operator name"),
+                new ColumnConfiguration("Driver_day", "Driver name"),
+
+            };
+            dataGridHelper.DesignGrid(fetchedData, columnConfigurations);
+
+            DatagridList.Children.Add(dataGrid);
+
+
         }
 
-        private void dgList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        /*private void dgList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             if (dgList.SelectedIndex >= 0 && dgList.SelectedIndex != dgList.Items.Count - 1)
             {
                 Franchise tmp = ((Franchise)dgList.SelectedItem);
 
-                tmpImage.Source = tmp.Operator?.image.GetSource();
+                //tmpImage.Source = tmp.Operator?.image.GetSource();
             }
-        }
+        }*/
 
 
         //PLANS ON EDITING FIELDS
