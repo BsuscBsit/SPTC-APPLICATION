@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using SPTC_APPLICATION.Database;
 using SPTC_APPLICATION.Objects;
 using SPTC_APPLICATION.View.Controls;
@@ -93,7 +94,7 @@ namespace SPTC_APPLICATION.View
                 new ColumnConfiguration("bodynumber", "Body Number"),
                 new ColumnConfiguration("licenceNO", "Plate Number"),
                 new ColumnConfiguration("Operator", "Operator name"),
-                new ColumnConfiguration("Driver_day", "Driver name"),
+                new ColumnConfiguration("Driver_day", "Driver name", 55, 150, Brushes.Gray, FontWeights.Bold, 12),
 
             };
             dataGridHelper.DesignGrid(fetchedData, columnConfigurations);
