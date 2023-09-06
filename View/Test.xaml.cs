@@ -88,13 +88,15 @@ namespace SPTC_APPLICATION.View
             // Assuming you have a List<Franchise> fetchedData
 
             DataGrid dataGrid = new DataGrid();
+
             DataGridHelper<Franchise> dataGridHelper = new DataGridHelper<Franchise>(dataGrid);
+
             List<ColumnConfiguration> columnConfigurations = new List<ColumnConfiguration>
             {
-                new ColumnConfiguration("bodynumber", "Body Number"),
-                new ColumnConfiguration("licenceNO", "Plate Number"),
+                new ColumnConfiguration("bodynumber", "###", width: 30),
+                new ColumnConfiguration("licenceNO", "Plate Number", width: 60, backgroundColor: Brushes.Yellow),
                 new ColumnConfiguration("Operator", "Operator name"),
-                new ColumnConfiguration("Driver_day", "Driver name", 55, 60, 150, Brushes.Gray, FontWeights.Bold, 12),
+                new ColumnConfiguration("Driver_day", "Driver name", fontWeight: FontWeights.Black, width: 100, maxWidth: 150),
 
             };
             dataGridHelper.DesignGrid(fetchedData, columnConfigurations);

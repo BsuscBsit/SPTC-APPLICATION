@@ -8,14 +8,26 @@ namespace SPTC_APPLICATION
     /// </summary>
     public partial class App : Application
     {
-        public App()
+        private int openWindowCount = 0;
+
+        protected override void OnStartup(StartupEventArgs e)
         {
-            InitializeComponent();
+            base.OnStartup(e);
+            IncrementOpenWindowCount();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            EventLogger.Post("Main :: Application Closed");
+            openWindowCount--;
+
+            if (openWindowCount <= 0)
+            {
+                EventLogger.Post("Main :: Application Closed");
+            }
+        }
+        public void IncrementOpenWindowCount()
+        {
+            openWindowCount++;
         }
 
     }

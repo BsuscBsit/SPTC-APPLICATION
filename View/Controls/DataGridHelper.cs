@@ -6,8 +6,10 @@ using System.Windows.Controls;
 
 namespace SPTC_APPLICATION.View.Controls
 {
-    
-
+    /// <summary>
+    /// This class is a Helper for Changing the Design of the Grid
+    /// </summary>
+    /// <typeparam name="T">This is for the specific Object Class that is to be displayed, Uses ToString() method for each parameter</typeparam>
 public class DataGridHelper<T>
     {
         private DataGrid dataGrid;
@@ -53,34 +55,47 @@ public class DataGridHelper<T>
         }
     }
 
+    /// <summary>
+    /// This is for desiging each Field of the Opject
+    /// </summary>
     public class ColumnConfiguration
     {
         public string BindingPath { get; }
         public string Header { get; }
-        public double Width { get; } = 100;
-        public double Height { get; } = 60;
-        public double MaxWidth { get; } = 200;
-        public System.Windows.Media.Brush BackgroundColor { get; } = Brushes.Yellow;
-        public FontWeight FontWeight { get; } = FontWeights.Bold;
-        public double FontSize { get; } = 15;
+        public double Width { get; }
+        public double Height { get; }
+        public double MaxWidth { get; }
+        public double FontSize { get; }
+        public System.Windows.Media.Brush BackgroundColor { get; }
+        public System.Windows.FontWeight FontWeight { get; }
 
-        public ColumnConfiguration(string bindingPath, string header)
-        {
-            this.BindingPath = bindingPath;
-            this.Header = header;
-        }
-        public ColumnConfiguration(string bindingPath, string header, double width, double height, double maxWidth, System.Windows.Media.Brush backgroundColor, FontWeight fontWeight, double fontSize)
+        public ColumnConfiguration(
+            string bindingPath,
+            string header,
+            double width = 200,
+            double height = 20,
+            double maxWidth = 200,
+            double fontSize = 12,
+            System.Windows.Media.Brush backgroundColor = null,
+            System.Windows.FontWeight? fontWeight = null)
         {
             BindingPath = bindingPath;
             Header = header;
             Width = width;
             Height = height;
             MaxWidth = maxWidth;
-            BackgroundColor = backgroundColor;
-            FontWeight = fontWeight;
             FontSize = fontSize;
+            BackgroundColor = backgroundColor ?? System.Windows.Media.Brushes.LightGray;
+
+            // Check if fontWeight is provided, otherwise use the default value
+            FontWeight = fontWeight.HasValue ? fontWeight.Value : System.Windows.FontWeights.Normal;
         }
     }
 
 
+
 }
+
+
+
+

@@ -8,6 +8,7 @@ namespace SPTC_APPLICATION
 {
     public static class AppState
     {
+        
         public static bool IS_ADMIN = false;
         public static Employee USER = null;
         public static string EXPIRATION_DATE = "2023 - 2024";
