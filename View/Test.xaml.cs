@@ -94,7 +94,7 @@ namespace SPTC_APPLICATION.View
                 new ColumnConfiguration("bodynumber", "Body Number"),
                 new ColumnConfiguration("licenceNO", "Plate Number"),
                 new ColumnConfiguration("Operator", "Operator name"),
-                new ColumnConfiguration("Driver_day", "Driver name", 55, 150, Brushes.Gray, FontWeights.Bold, 12),
+                new ColumnConfiguration("Driver_day", "Driver name", 55, 60, 150, Brushes.Gray, FontWeights.Bold, 12),
 
             };
             dataGridHelper.DesignGrid(fetchedData, columnConfigurations);

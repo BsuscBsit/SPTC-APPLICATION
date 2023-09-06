@@ -39,7 +39,8 @@ public class DataGridHelper<T>
                     {
                         new Setter(System.Windows.Controls.Control.BackgroundProperty, config.BackgroundColor),
                         new Setter(System.Windows.Controls.Control.FontWeightProperty, config.FontWeight),
-                        new Setter(System.Windows.Controls.Control.FontSizeProperty, config.FontSize)
+                        new Setter(System.Windows.Controls.Control.FontSizeProperty, config.FontSize),
+                        new Setter(System.Windows.Controls.Control.HeightProperty, config.Height)
                     }
                     }
                 };
@@ -57,6 +58,7 @@ public class DataGridHelper<T>
         public string BindingPath { get; }
         public string Header { get; }
         public double Width { get; } = 100;
+        public double Height { get; } = 60;
         public double MaxWidth { get; } = 200;
         public System.Windows.Media.Brush BackgroundColor { get; } = Brushes.Yellow;
         public FontWeight FontWeight { get; } = FontWeights.Bold;
@@ -67,11 +69,12 @@ public class DataGridHelper<T>
             this.BindingPath = bindingPath;
             this.Header = header;
         }
-        public ColumnConfiguration(string bindingPath, string header, double width, double maxWidth, System.Windows.Media.Brush backgroundColor, FontWeight fontWeight, double fontSize)
+        public ColumnConfiguration(string bindingPath, string header, double width, double height, double maxWidth, System.Windows.Media.Brush backgroundColor, FontWeight fontWeight, double fontSize)
         {
             BindingPath = bindingPath;
             Header = header;
             Width = width;
+            Height = height;
             MaxWidth = maxWidth;
             BackgroundColor = backgroundColor;
             FontWeight = fontWeight;
