@@ -80,7 +80,7 @@ namespace SPTC_APPLICATION.View
 
                     List<Franchise> franchises = new List<Franchise>();
                     franchises.AddRange(Retrieve.GetData<Franchise>(Table.FRANCHISE, Select.ALL, Where.ALL_NOTDELETED));
-
+                    
                     return franchises;
                 }
             });

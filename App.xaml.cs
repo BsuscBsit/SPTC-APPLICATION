@@ -8,6 +8,11 @@ namespace SPTC_APPLICATION
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            InitializeComponent();
+        }
+
         private void Application_Exit(object sender, ExitEventArgs e)
         {
             EventLogger.Post("Main :: Application Closed");
