@@ -126,28 +126,23 @@ namespace SPTC_APPLICATION.Database
                     catch (MySqlException ex)
                     {
                         if (ex.Number == 1062)
-                        {
+                        { 
+                            EventLogger.Post($"DTB :: Insert Exception: Existing Duplicate: {ex.Message}");
                             if (tableName == Table.NAME)
                             {
-                                // Pass the uniqueAttributes parameter for the "NAME" table
                                 id = GetExistingRecordId(fieldValues);
-                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
-                                this.Save();
-                            }
-                            if(tableName == Table.ADDRESS)
-                            {
-                                id = GetExistingRecordId(fieldValues);
-                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
-                                this.Save();
-                            }
+                            } else if (tableName == Table.ADDRESS) {
+                                Dictionary<string, object> uniqueAttributes = new Dictionary<string, object>
+                                {
+                                    { Field.ADDRESSLINE1, fieldValues[Field.ADDRESSLINE1] },
+                                    { Field.ADDRESSLINE2, fieldValues[Field.ADDRESSLINE2] }
+                                };
 
-                            else
-                            {
-                                // For other tables, call GetExistingRecordId without the parameter
+                                id = GetExistingRecordId(uniqueAttributes);
+
+                            }
+                            else {
                                 id = GetExistingRecordId();
-
-                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
-                                this.Save();
                             }
                         }
                         else
@@ -193,7 +188,6 @@ namespace SPTC_APPLICATION.Database
                 EventLogger.Post($"DTB :: Update Main Exception : {ex.Message}");
             }
         }
-
         private int GetExistingRecordId(Dictionary<string, object> uniqueAttributes = null)
         {
             try
@@ -218,9 +212,10 @@ namespace SPTC_APPLICATION.Database
                     else
                     {
                         // Handle tables without unique sets
-                        string query = $"SELECT id FROM {tableName} WHERE {GetUniqueAttributeName()} = @{GetUniqueAttributeName()}";
+                        string uniqueAttribute = GetUniqueAttributeName();
+                        string query = $"SELECT id FROM {tableName} WHERE {uniqueAttribute} = @{uniqueAttribute}";
                         command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue($"@{GetUniqueAttributeName()}", fieldValues[GetUniqueAttributeName()]);
+                        command.Parameters.AddWithValue($"@{uniqueAttribute}", fieldValues[uniqueAttribute]);
                     }
 
                     object result = command.ExecuteScalar();
@@ -237,7 +232,13 @@ namespace SPTC_APPLICATION.Database
 
         private string GetUniqueAttributeName()
         {
+            if (tableName == Table.FRANCHISE)
+            {
+                return Field.BODY_NUMBER;
+            }
+
             return fieldValues.Keys.FirstOrDefault();
         }
+
     }
 }

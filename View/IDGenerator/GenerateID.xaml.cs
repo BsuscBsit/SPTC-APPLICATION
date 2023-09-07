@@ -29,6 +29,7 @@ namespace SPTC_APPLICATION.View
         public GenerateID()
         {
             InitializeComponent();
+            bDay.SelectedDate = DateTime.Today;
             EventLogger.Post("VIEW :: ID GENERATE Window");
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             btnStartPad.IsEnabled = false;
@@ -47,6 +48,7 @@ namespace SPTC_APPLICATION.View
         public GenerateID(Franchise franchise, bool isDriver)
         {
             InitializeComponent();
+            bDay.SelectedDate = DateTime.Today;
             this.franchise = franchise;
             isUpdate = true;
             EventLogger.Post("VIEW :: ID GENERATE Window id="+franchise.id);
@@ -92,13 +94,14 @@ namespace SPTC_APPLICATION.View
                     }
                     if (drv.signature != null)
                     {
-                        imgIDPic.Source = drv.signature.GetSource();
+                        imgSignPic.Source = drv.signature.GetSource();
                         hasSign = true;
                     }
                     if(drv.birthday != null)
                     {
                         bDay.DisplayDate = drv.birthday;
                         bDay.DataContext = drv.birthday;
+                        bDay.Text = drv.birthday.ToString();
                     }
                     tboxEmePer.Text = drv.emergencyPerson;
                     tboxPhone.Text = drv.emergencyContact;
@@ -133,13 +136,14 @@ namespace SPTC_APPLICATION.View
                     }
                     if (drv.signature != null)
                     {
-                        imgIDPic.Source = drv.signature.GetSource();
+                        imgSignPic.Source = drv.signature.GetSource();
                         hasSign = true;
                     }
                     if (drv.birthday != null)
                     {
                         bDay.DisplayDate = drv.birthday;
                         bDay.DataContext = drv.birthday;
+                        bDay.Text = drv.birthday.ToString();
                     }
                     tboxEmePer.Text = drv.emergencyPerson;
                     tboxPhone.Text = drv.emergencyContact;
@@ -353,13 +357,13 @@ namespace SPTC_APPLICATION.View
                         Address address = @obj.address;
                         address.addressline1 = tboxAddressB.Text;
                         address.addressline2 = tboxAddressS.Text;
-                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                        @obj.WriteInto(name, address, image, sign, "", (DateTime)bDay.SelectedDate, tboxEmePer.Text, tboxPhone.Text);
                     }
                     else
                     {
                         Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
                         Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
-                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                        @obj.WriteInto(name, address, image, sign, "", (DateTime)bDay.SelectedDate, tboxEmePer.Text, tboxPhone.Text);
                     }
                     
                     franchise.WriteInto(tboxBnum.Text, null, @obj, null, tboxLnum.Text);
@@ -394,13 +398,13 @@ namespace SPTC_APPLICATION.View
                         Address address = @obj.address;
                         address.addressline1 = tboxAddressB.Text;
                         address.addressline2 = tboxAddressS.Text;
-                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                        @obj.WriteInto(name, address, image, sign, "", (DateTime)bDay.SelectedDate, tboxEmePer.Text, tboxPhone.Text);
                     }
                     else
                     {
                         Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
                         Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
-                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                        @obj.WriteInto(name, address, image, sign, "", (DateTime)bDay.SelectedDate, tboxEmePer.Text, tboxPhone.Text);
                     }
 
                     
