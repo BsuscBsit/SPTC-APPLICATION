@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
+using System.Xml.Linq;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using Microsoft.Win32;
@@ -19,6 +20,8 @@ namespace SPTC_APPLICATION.View
         bool hasPhoto = false;
         bool hasSign = false;
         bool isDriver = true;
+        private Franchise franchise;
+        bool isUpdate = false;
 
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
@@ -35,9 +38,115 @@ namespace SPTC_APPLICATION.View
                 btnStartCam.IsEnabled = false;
                 return;
             }
+            franchise = new Franchise();
+            isUpdate = false;
+            videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            videoSource.NewFrame += new NewFrameEventHandler(videoSource_NewFrame);
+        }
+
+        public GenerateID(Franchise franchise, bool isDriver)
+        {
+            InitializeComponent();
+            this.franchise = franchise;
+            isUpdate = true;
+            EventLogger.Post("VIEW :: ID GENERATE Window id="+franchise.id);
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            btnStartPad.IsEnabled = false;
+            if (videoDevices.Count == 0)
+            {
+                EventLogger.Post("ERR :: No video devices found.");
+                btnStartCam.IsEnabled = false;
+                return;
+            }
 
             videoSource = new VideoCaptureDevice(videoDevices[0].MonikerString);
             videoSource.NewFrame += new NewFrameEventHandler(videoSource_NewFrame);
+
+            this.isDriver = isDriver;
+            MySwitch.Visibility = Visibility.Hidden;
+            if (isDriver)
+            {
+                drvOrOprt.Content = "DRIVER";
+                lblPhoto.Content = "Driver's Photo";
+                lblsign.Content = "Driver's Signature";
+                if (franchise.Driver_day != null)
+                {
+                    var drv = franchise.Driver_day;
+                    if(drv.name != null)
+                    {
+                        cbGender.SelectedIndex = ((drv.name.prefix == "Mrs.") ? 1 : 0);
+                        tboxFn.Text = drv.name.firstname;
+                        tboxMn.Text = drv.name.middlename;
+                        tboxLn.Text = drv.name.lastname;
+                        //ADD suffix for Jr. Sr etc...
+                    }
+                    if(drv.address != null)
+                    {
+                        tboxAddressB.Text = drv.address.addressline1;
+                        tboxAddressS.Text = drv.address.addressline2;
+                    }
+                    if(drv.image != null)
+                    {
+                        imgIDPic.Source = drv.image.GetSource();
+                        hasPhoto = true;
+                    }
+                    if (drv.signature != null)
+                    {
+                        imgIDPic.Source = drv.signature.GetSource();
+                        hasSign = true;
+                    }
+                    if(drv.birthday != null)
+                    {
+                        bDay.DisplayDate = drv.birthday;
+                        bDay.DataContext = drv.birthday;
+                    }
+                    tboxEmePer.Text = drv.emergencyPerson;
+                    tboxPhone.Text = drv.emergencyContact;
+                    tboxBnum.Text = franchise.bodynumber;
+                    tboxLnum.Text = franchise.licenceNO;
+                }
+            } else
+            {
+                drvOrOprt.Content = "OPERATOR";
+                lblPhoto.Content = "Operator's Photo";
+                lblsign.Content = "Operator's Signature";
+                if (franchise.Operator != null)
+                {
+                    var drv = franchise.Operator;
+                    if (drv.name != null)
+                    {
+                        cbGender.SelectedIndex = ((drv.name.prefix == "Mrs.") ? 1 : 0);
+                        tboxFn.Text = drv.name.firstname;
+                        tboxMn.Text = drv.name.middlename;
+                        tboxLn.Text = drv.name.lastname;
+                        //ADD suffix for Jr. Sr etc...
+                    }
+                    if (drv.address != null)
+                    {
+                        tboxAddressB.Text = drv.address.addressline1;
+                        tboxAddressS.Text = drv.address.addressline2;
+                    }
+                    if (drv.image != null)
+                    {
+                        imgIDPic.Source = drv.image.GetSource();
+                        hasPhoto = true;
+                    }
+                    if (drv.signature != null)
+                    {
+                        imgIDPic.Source = drv.signature.GetSource();
+                        hasSign = true;
+                    }
+                    if (drv.birthday != null)
+                    {
+                        bDay.DisplayDate = drv.birthday;
+                        bDay.DataContext = drv.birthday;
+                    }
+                    tboxEmePer.Text = drv.emergencyPerson;
+                    tboxPhone.Text = drv.emergencyContact;
+                    tboxBnum.Text = franchise.bodynumber;
+                    tboxLnum.Text = franchise.licenceNO;
+                }
+            }
 
 
         }
@@ -69,20 +178,22 @@ namespace SPTC_APPLICATION.View
 
         private void MySwitch_Back(object sender, RoutedEventArgs e)
         {
-            // Switch is in the True state
-            isDriver = false;
-            drvOrOprt.Content = "OPERATOR";
-            lblPhoto.Content = "Operator's Photo";
-            lblsign.Content = "Operator's Signature";
+                // Switch is in the True state
+                isDriver = false;
+                drvOrOprt.Content = "OPERATOR";
+                lblPhoto.Content = "Operator's Photo";
+                lblsign.Content = "Operator's Signature";
+            
         }
 
         private void MySwitch_Front(object sender, RoutedEventArgs e)
         {
-            // Switch is in the False state
-            isDriver = true;
-            drvOrOprt.Content = "DRIVER";
-            lblPhoto.Content = "Driver's Photo";
-            lblsign.Content = "Driver's Signature";
+                // Switch is in the False state
+                isDriver = true;
+                drvOrOprt.Content = "DRIVER";
+                lblPhoto.Content = "Driver's Photo";
+                lblsign.Content = "Driver's Signature";
+            
         }
 
         private void InitializeCamera()
@@ -219,27 +330,38 @@ namespace SPTC_APPLICATION.View
                 if (isDriver)
                 {
                     Driver @obj = new Driver();
-
-
-                    string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
-                    Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
-                    Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
                     SPTC_APPLICATION.Objects.Image image = null;
                     SPTC_APPLICATION.Objects.Image sign = null;
                     if (hasPhoto)
                     {
-                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv - {name.firstname}");
+                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv - {tboxFn.Text}");
                     }
                     if (hasSign)
                     {
-                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign  -{name.firstname}");
+                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign  -{tboxFn.Text}");
                     }
 
-
-                    @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
-
-
-                    Franchise franchise = new Franchise();
+                    string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
+                    if (isUpdate)
+                    {
+                        @obj = franchise.Driver_day;
+                        Name name = @obj.name;
+                        name.prefix = prefix;
+                        name.firstname = tboxFn.Text;
+                        name.middlename = tboxMn.Text;
+                        name.lastname = tboxLn.Text;
+                        Address address = @obj.address;
+                        address.addressline1 = tboxAddressB.Text;
+                        address.addressline2 = tboxAddressS.Text;
+                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                    }
+                    else
+                    {
+                        Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
+                        Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
+                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                    }
+                    
                     franchise.WriteInto(tboxBnum.Text, null, @obj, null, tboxLnum.Text);
 
                     ID id = new ID(franchise, Objects.General.DRIVER_DAY);
@@ -250,25 +372,38 @@ namespace SPTC_APPLICATION.View
                 else
                 {
                     Operator @obj = new Operator();
-                    string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
-                    Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
-                    Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
                     SPTC_APPLICATION.Objects.Image image = null;
                     SPTC_APPLICATION.Objects.Image sign = null;
                     if (hasPhoto)
                     {
-                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Optr - {name.firstname}");
+                        image = new SPTC_APPLICATION.Objects.Image(imgIDPic.Source, $"Drv - {tboxFn.Text}");
                     }
                     if (hasSign)
                     {
-                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign - {name.firstname}");
+                        sign = new SPTC_APPLICATION.Objects.Image(imgSignPic.Source, $"Sign  -{tboxFn.Text}");
+                    }
+                    string prefix = (cbGender.SelectedIndex == 0) ? "Mr." : "Mrs.";
+                    if (isUpdate)
+                    {
+                        @obj = franchise.Operator;
+                        Name name = @obj.name;
+                        name.prefix = prefix;
+                        name.firstname = tboxFn.Text;
+                        name.middlename = tboxMn.Text;
+                        name.lastname = tboxLn.Text;
+                        Address address = @obj.address;
+                        address.addressline1 = tboxAddressB.Text;
+                        address.addressline2 = tboxAddressS.Text;
+                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
+                    }
+                    else
+                    {
+                        Name name = new Name(prefix, tboxFn.Text, tboxMn.Text, tboxLn.Text, "");
+                        Address address = new Address(tboxAddressB.Text, tboxAddressS.Text);
+                        @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
                     }
 
-
-                    @obj.WriteInto(name, address, image, sign, "", bDay.DisplayDate, tboxEmePer.Text, tboxPhone.Text);
-
-
-                    Franchise franchise = new Franchise();
+                    
                     franchise.WriteInto(tboxBnum.Text, @obj, null, null, tboxLnum.Text);
 
                     ID id = new ID(franchise, Objects.General.OPERATOR);

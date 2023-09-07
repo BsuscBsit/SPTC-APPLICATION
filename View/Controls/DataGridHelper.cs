@@ -23,9 +23,12 @@ public class DataGridHelper<T>
         {
             // Clear existing columns
             dataGrid.Columns.Clear();
+            dataGrid.Focusable = true;
+            dataGrid.IsReadOnly = true;
+            dataGrid.SelectionUnit = DataGridSelectionUnit.FullRow;
             dataGrid.AutoGenerateColumns = false;
             // Define your column configurations here
-            
+
 
             foreach (var config in columnConfigurations)
             {

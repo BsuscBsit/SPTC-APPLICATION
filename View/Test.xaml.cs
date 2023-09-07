@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using SPTC_APPLICATION.Database;
 using SPTC_APPLICATION.Objects;
@@ -11,7 +12,7 @@ namespace SPTC_APPLICATION.View
 {
     public partial class Test : System.Windows.Window
     {
-
+        List<Franchise> fetchedData;
         public Test()
         {
             InitializeComponent();
@@ -72,7 +73,7 @@ namespace SPTC_APPLICATION.View
         //Problematic because of Objects
         private async void UpdateList()
         {
-            List<Franchise> fetchedData = await Task.Run(() =>
+            fetchedData = await Task.Run(() =>
             {
                 using (var connection = DatabaseConnection.GetConnection())
                 {
@@ -102,20 +103,28 @@ namespace SPTC_APPLICATION.View
             dataGridHelper.DesignGrid(fetchedData, columnConfigurations);
 
             DatagridList.Children.Add(dataGrid);
-
-
+            
+            dataGrid.SelectionChanged += dgList_SelectionChanged;
+            //dataGrid.PreviewMouseLeftButtonDown += dgList_PreviewMouseLeftButtonDown;
         }
 
-        /*private void dgList_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        /*foreach(Franchise f in fetchedData)
         {
-            if (dgList.SelectedIndex >= 0 && dgList.SelectedIndex != dgList.Items.Count - 1)
+            if(f.Driver_day != null)
             {
-                Franchise tmp = ((Franchise)dgList.SelectedItem);
-
-                //tmpImage.Source = tmp.Operator?.image.GetSource();
+                (new GenerateID(f, true)).Show();
             }
         }*/
 
+        private void dgList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGrid grid = (DataGrid)sender;
+
+            if (grid.SelectedCells.Count > 0)
+            {
+                (new GenerateID(fetchedData[grid.SelectedIndex], true)).Show();
+            }
+        }
 
         //PLANS ON EDITING FIELDS
         //first create a class that modifies

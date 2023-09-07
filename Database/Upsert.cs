@@ -134,6 +134,13 @@ namespace SPTC_APPLICATION.Database
                                 EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
                                 this.Save();
                             }
+                            if(tableName == Table.ADDRESS)
+                            {
+                                id = GetExistingRecordId(fieldValues);
+                                EventLogger.Post($"DTB :: Duplicate entry. Existing Record ID = {id}");
+                                this.Save();
+                            }
+
                             else
                             {
                                 // For other tables, call GetExistingRecordId without the parameter
