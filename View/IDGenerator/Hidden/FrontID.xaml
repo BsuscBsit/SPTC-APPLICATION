@@ -36,7 +36,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="imgSPTC" Grid.Column="0" Source="/View/Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="115" Width="115" Stretch="Uniform" />
-                    <Image x:Name="imgID" Grid.Column="1" Source="/View/Images/no_id.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="144" Width="144" Stretch="Uniform" />
+                    <Image x:Name="imgID" Grid.Column="1" Source="/View/Images/no_id.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="144" Width="144" Stretch="UniformToFill" />
                 </Grid>
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-15">
                     <Label x:Name="label6" Content="Expiry Date:" FontFamily="Consolas" FontWeight="Bold" Foreground="#FFC00000"/>

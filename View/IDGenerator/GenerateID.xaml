@@ -382,7 +382,7 @@
                     Width="200" 
                     Source="/View/Images/album.png" 
                     HorizontalAlignment="Center"
-                    Margin="0,0,0,0" Stretch="Fill"/>
+                    Margin="0,0,0,0" Stretch="UniformToFill"/>
                 <ProgressBar x:Name="pbCameraOpen" Height="5" Width="200" Margin="0,2,0,13" Visibility="Hidden" IsIndeterminate="false"/>
                 <Button x:Name="btnStartCam" Content="Start Camera"
                         Width="175"
@@ -417,9 +417,8 @@
                 <Image x:Name="imgSignPic" 
                     Height="150" 
                     Width="250" 
-                    Source="/View/Images/sign.png" 
-                    Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Margin="0,25,0,45"/>
+                    Source="/View/Images/sign.png" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Margin="0,25,0,45" Stretch="UniformToFill"/>
                 <Button x:Name="btnStartPad" Content="Start Pad"
                     Width="175"
                     Height="30"

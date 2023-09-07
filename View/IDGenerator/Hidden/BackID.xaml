@@ -77,7 +77,7 @@
         </StackPanel>
         <Rectangle Fill="Black" Height="1" Grid.Row="12"/>
         <StackPanel Grid.Row="13" Orientation="Vertical">
-            <Image x:Name="imgSign" VerticalAlignment="Center"/>
+            <Image x:Name="imgSign" VerticalAlignment="Center" Height="80" Width="200" Stretch="UniformToFill"/>
             <Label x:Name="lblName" Content="PANUELOS, JOEL G." FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,-5,0,-5" FontWeight="Bold"/>
             <Rectangle Fill="Black" Height="1" VerticalAlignment="Bottom"/>
             <Label x:Name="label9" Content="Signature" Style="{StaticResource Labels}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,-5,0,-5"/>
