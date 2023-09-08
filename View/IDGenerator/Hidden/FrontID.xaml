@@ -7,63 +7,63 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         mc:Ignorable="d"
-        Topmost="False"  Height="441.6" Width="316.8" Loaded="window_Loaded">
+        Topmost="False"  Height="424.32" Width="305.28" Loaded="window_Loaded">
     <Grid x:Name="front">
         <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,1,0,-8">
-                    <Label x:Name="label1" Content="CDA REG. NO." HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000"/>
-                    <Label x:Name="lblRegNum" Content="9520-03006397" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
-                    <Label x:Name="label2" Content="SAPANG PALAY TRICYCLE" HorizontalAlignment="Center" FontFamily="Berlin Sans FB" FontWeight="SemiBold" Margin="0,0,0,-9"/>
-                    <Label x:Name="label3" Content="SERVICE COOPERATIVE (SPTC)" HorizontalAlignment="Center" FontFamily="Berlin Sans FB" FontWeight="SemiBold" Margin="0,0,0,-9"/>
-                    <Label x:Name="label4" Content="Blk.1 Lot 8 Hacienda Sapang Palay Proper," HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000" Margin="0,0,0,-9"/>
-                    <Label x:Name="label5" Content="City of San Jose Del Monte, Bulacan" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000" Margin="0,0,0,-9"/>
-                </StackPanel>
-                <Grid Grid.Row="2" Background="Transparent" HorizontalAlignment="Left" Margin="8,15,8,4" Width="300">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Image x:Name="imgSPTC" Grid.Column="0" Source="/View/Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="115" Width="115" Stretch="Uniform" />
-                    <Image x:Name="imgID" Grid.Column="1" Source="/View/Images/no_id.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="144" Width="144" Stretch="UniformToFill" />
-                </Grid>
-                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-15">
-                    <Label x:Name="label6" Content="Expiry Date:" FontFamily="Consolas" FontWeight="Bold" Foreground="#FFC00000"/>
-                    <Label x:Name="lblXPDate" Content="April 2022-2023" FontFamily="Consolas" FontWeight="Bold" Foreground="#FFC00000"/>
-                </StackPanel>
-                <StackPanel Grid.Row="4" Orientation="Vertical" Margin="0,0,0,4">
-                    <Viewbox x:Name="viewbox2" Stretch="Fill" Margin="0,0,0,-15" Height="1">
-                        <local:OutlinedTextBlock x:Name="lblPosition" Text="DRIVER" FontFamily="Playbill" FontWeight="Bold" TextWrapping="Wrap" StrokeThickness="0.1" Stroke="#B2B2B2" Fill="Black" Margin="1,0,1,0"/>
-                    </Viewbox>
-                    <Viewbox x:Name="viewbox3" Stretch="Fill" Height="1">
-                        <local:OutlinedTextBlock x:Name="lblName" Text="SAN DIEGO, CHRISTIAN V." FontFamily="Impact" FontWeight="Bold" TextWrapping="Wrap" StrokeThickness="0.3" Stroke="#EAEAEA" Fill="#1D314E" Margin="2,0,2,0" RenderTransformOrigin="0.5,0.5">
-                            <local:OutlinedTextBlock.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform AngleX="-5" AngleY="0"/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </local:OutlinedTextBlock.RenderTransform>
-                        </local:OutlinedTextBlock>
-                    </Viewbox>
-                </StackPanel>
-                <StackPanel Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Center">
-                    <Label x:Name="lblChairman" Content="ROLLY M. LABINDAO" HorizontalAlignment="Center" FontFamily="Bookman Old Style" FontWeight="Bold" Margin="0,0,0,-8"/>
-                    <Label x:Name="label7" Content="Chairman" HorizontalAlignment="Center" FontFamily="Bell MT" Foreground="#FFC00000"/>
-                </StackPanel>
-                <Label Grid.Row="6" Content="AllenLiao-Morado2022" FontFamily="Centaur"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,1,0,-8">
+                <Label x:Name="label1" Content="CDA REG. NO." HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000"/>
+                <Label x:Name="lblRegNum" Content="9520-03006397" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label x:Name="label2" Content="SAPANG PALAY TRICYCLE" HorizontalAlignment="Center" FontFamily="Berlin Sans FB" FontWeight="SemiBold" Margin="0,0,0,-9"/>
+                <Label x:Name="label3" Content="SERVICE COOPERATIVE (SPTC)" HorizontalAlignment="Center" FontFamily="Berlin Sans FB" FontWeight="SemiBold" Margin="0,0,0,-9"/>
+                <Label x:Name="label4" Content="Blk.1 Lot 8 Hacienda Sapang Palay Proper," HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000" Margin="0,0,0,-9"/>
+                <Label x:Name="label5" Content="City of San Jose Del Monte, Bulacan" HorizontalAlignment="Center" FontFamily="Comic Sans MS" Foreground="#FFC00000" Margin="0,0,0,-9"/>
+            </StackPanel>
+            <Grid Grid.Row="2" Background="Transparent" HorizontalAlignment="Left" Margin="8,5,8,-4" Width="300">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="imgSPTC" Grid.Column="0" Source="/View/Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="115" Width="115" Stretch="Uniform" />
+                <Image x:Name="imgID" Grid.Column="1" Source="/View/Images/no_id.png" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="1" Height="144" Width="144" Stretch="UniformToFill" />
             </Grid>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,-15">
+                <Label x:Name="label6" Content="Expiry Date:" FontFamily="Consolas" FontWeight="Bold" Foreground="#FFC00000"/>
+                <Label x:Name="lblXPDate" Content="April 2022-2023" FontFamily="Consolas" FontWeight="Bold" Foreground="#FFC00000"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Vertical" Margin="0,0,0,4">
+                <Viewbox x:Name="viewbox2" Stretch="Fill" Margin="0,0,0,-15" Height="1">
+                    <local:OutlinedTextBlock x:Name="lblPosition" Text="DRIVER" FontFamily="Playbill" FontWeight="Bold" TextWrapping="Wrap" StrokeThickness="0.1" Stroke="#B2B2B2" Fill="Black" Margin="1,0,1,0"/>
+                </Viewbox>
+                <Viewbox x:Name="viewbox3" Stretch="Fill" Height="1">
+                    <local:OutlinedTextBlock x:Name="lblName" Text="SAN DIEGO, CHRISTIAN V." FontFamily="Impact" FontWeight="Bold" TextWrapping="Wrap" StrokeThickness="0.3" Stroke="#EAEAEA" Fill="#1D314E" Margin="2,0,2,0" RenderTransformOrigin="0.5,0.5">
+                        <local:OutlinedTextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="-5" AngleY="0"/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </local:OutlinedTextBlock.RenderTransform>
+                    </local:OutlinedTextBlock>
+                </Viewbox>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Center">
+                <Label x:Name="lblChairman" Content="ROLLY M. LABINDAO" HorizontalAlignment="Center" FontFamily="Bookman Old Style" FontWeight="Bold" Margin="0,0,0,-8"/>
+                <Label x:Name="label7" Content="Chairman" HorizontalAlignment="Center" FontFamily="Bell MT" Foreground="#FFC00000"/>
+            </StackPanel>
+        </Grid>
+        <Label Content="AllenLiao-Morado2022" FontFamily="Centaur" VerticalAlignment="Bottom" FontSize="11" Margin="-1,0,0,-2"/>
     </Grid>
 </Window>

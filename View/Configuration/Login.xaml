@@ -8,7 +8,7 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Icon="../../View/Images/icons/logo.ico"
-        Title="Login" Height="494" Width="784" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown">
+        Title="Login" Height="350" Width="619.791666666667" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -164,15 +164,15 @@
         </ResourceDictionary>
     </Window.Resources>
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Image Height="Auto" Width="Auto" Source="/View/Images/bg_login.png" Stretch="Fill"/>
+        <Image Height="350" Width="Auto" Source="/View/Images/bg_login.png"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Image Height="250" Width="250" Source="/View/Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <Image Height="200" Width="200" Source="/View/Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0"/>
             <Grid Grid.Column="1">
-                <StackPanel Orientation="Vertical" Margin="50,0,50,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" Margin="25,0,25,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid Height="91" Margin="0,0,0,40">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5" />
