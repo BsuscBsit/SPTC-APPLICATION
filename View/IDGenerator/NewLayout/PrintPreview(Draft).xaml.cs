@@ -23,7 +23,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
         private double zoomScale = 1.0;
         private Point panOrigin;
         private bool isPanning = false;
-
+        private int newvar; // just to push, remove after.
 
         public PrintPreview_Draft_()
         {
