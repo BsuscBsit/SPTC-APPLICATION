@@ -16,6 +16,7 @@ namespace SPTC_APPLICATION.View
         public Login()
         {
             InitializeComponent();
+            cbUser.ItemsSource = AppState.Employees;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

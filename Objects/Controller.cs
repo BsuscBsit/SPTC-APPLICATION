@@ -151,10 +151,11 @@ namespace SPTC_APPLICATION.Objects
         
 
         //FOR DEBUG PURPOSE
-        public static void CreateEmployee()
+        public static void CreateEmployee(int userindex)
         {
-            Upsert employee = new Upsert("tbl_employee", -1);
-            employee.Insert("password", RequestQuery.Protect("Admin1234"));
+            Upsert employee = new Upsert(Table.EMPLOYEE, -1);
+            employee.Insert(Field.PASSWORD, RequestQuery.Protect(AppState.DEFAULT_PASSWORD));
+            employee.Insert(Field.POSITION_ID, userindex);
             employee.Save();
         }
 
