@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
         mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
         ResizeMode="NoResize"
-        Title="Print Preview" WindowStartupLocation="CenterScreen" Height="559" Width="536" HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="Print Preview" WindowStartupLocation="CenterScreen" Height="610" Width="536" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -33,7 +33,7 @@
                    Margin="40,0,0,0"/>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="348"/>
+                <ColumnDefinition Width="347"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <ScrollViewer x:Name="scrollViewer" Grid.Column="0"
