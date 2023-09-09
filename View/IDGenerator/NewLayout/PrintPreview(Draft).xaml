@@ -1,0 +1,147 @@
+﻿<Window x:Class="SPTC_APPLICATION.View.IDGenerator.NewLayout.PrintPreview_Draft_"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
+        mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
+        ResizeMode="NoResize"
+        Title="Print Preview" WindowStartupLocation="CenterScreen" Height="559" Width="536" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/View/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="0,6,0,6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="462"/>
+        </Grid.RowDefinitions>
+        <Rectangle Height="40" Grid.Row="0" Fill="#FEF301"/>
+        <Label Content="PRINT PREVIEW"
+                   Height="Auto" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Top"
+                   Foreground="Gray"
+                   FontWeight="SemiBold"
+                   FontSize="20"
+                   FontFamily="Inter"
+                   Grid.Row="1"
+                   Margin="40,0,0,0"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="348"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer x:Name="scrollViewer" Grid.Column="0"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid x:Name="zoomableGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Border x:Name="Content" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Width="326" Height="422" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid x:Name="frontPage">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Row="0" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid x:Name="grid1" >
+                                    <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
+                                </Grid>
+
+                            </Border>
+                            <Border Grid.Row="0" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid x:Name="grid2">
+                                    <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
+                                </Grid>
+
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid x:Name="grid3">
+                                    <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
+                                </Grid>
+
+                            </Border>
+                            <Border Grid.Row="2" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid x:Name="grid4">
+                                    <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
+                                </Grid>
+
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </ScrollViewer>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15,0,20,0">
+                <Button x:Name="btnCancelp" Content="CANCEL" Width="135" Height="40"
+                Style="{StaticResource GenericButton}" Click="btnCancel_Click" Margin="0,0,0,20"/>
+                <Button x:Name="btnAddNew" Content="ADD NEW ID" Width="135" Height="40"
+                Style="{StaticResource GenericButton}" Click="btnAddNew_Click" Margin="0,0,0,20"/>
+                <Button x:Name="btnPrint" Content="PRINT" Width="135" Height="40"
+                Style="{StaticResource GenericButton}" Click="btnPrint_Click"/>
+                <Grid Margin="0,24,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="zoomTextBlock" VerticalAlignment="Center" Text="0%" HorizontalAlignment="Center" Margin="0,0,0,7"/>
+                    <Button Content="-" Click="ZoomOut_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Grid.Row="1"/>
+                    <Slider x:Name="zoomSlider" Width="100" Minimum="0.1" Maximum="5" Value="1" ValueChanged="ZoomSlider_ValueChanged" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Button Content="+" Click="ZoomIn_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Grid.Row="1"/>
+                    <Button Content="Reset Zoom" Click="ResetZoom_Click" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2" Width="89"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0,0,0,2" Grid.RowSpan="3">
+            <!--
+        <Grid x:Name="Grid0Content" Visibility="Visible" d:IsHidden="True">
+            <Image Source="/View/Images/bg_dialog.png" Stretch="Fill" StretchDirection="DownOnly" />
+            <Grid>
+                <Border CornerRadius="10" 
+                        Background="White"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical" Width="400">
+                        <Border Height="40" Background="#FEF301" CornerRadius="10,10,0,0"/>
+                        <Label Content="GENERATE ID" 
+                           Height="Auto" 
+                           HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"
+                           Foreground="Gray"
+                           FontWeight="SemiBold"
+                           FontSize="20"
+                           FontFamily="Inter"
+                           Margin="15,0,0,0"/>
+                        <Label Content="Print preview is empty." 
+                            Height="Auto"
+                            FontWeight="SemiBold"
+                            FontSize="14"
+                            Foreground="Gray"
+                            FontFamily="Inter"
+                            Margin="15,0,0,30"/>
+                        <Button x:Name="btnGenerate" Content="CREATE NEW ID"
+                            Width="175"
+                            Height="40"
+                            Style="{StaticResource GenericButton}"
+                            Margin="0,0,0,20" Click="btnAddNew_Click"/>
+                        <Button x:Name="btnExit" Content="EXIT"
+                            Width="175"
+                            Height="40"
+                            Style="{StaticResource GenericButton}"
+                            Margin="0,0,0,40" Click="btnExit_Click"/>
+
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+        -->
+        </Grid>
+    </Grid>
+</Window>
