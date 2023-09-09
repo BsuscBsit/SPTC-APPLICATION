@@ -29,6 +29,7 @@ namespace SPTC_APPLICATION.View
         public GenerateID()
         {
             InitializeComponent();
+            tboxAddressS.Text = AppState.DEFAULT_ADDRESSLINE2;
             bDay.SelectedDate = DateTime.Today;
             EventLogger.Post("VIEW :: ID GENERATE Window");
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
