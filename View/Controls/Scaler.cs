@@ -5,23 +5,13 @@ namespace SPTC_APPLICATION.View
 {
     internal class Scaler
     {
-        public static double ConvertCentimetersToDIP(double centimeters, Visual visual)
+        public static double InToDip(double inches)
         {
-            // Get the current presentation source for the specified visual
-            PresentationSource source = PresentationSource.FromVisual(visual);
-
-            if (source != null)
-            {
-                // Retrieve the current DPI settings
-                double dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
-
-                // Calculate the equivalent DIP value
-                double dipValue = centimeters * (dpiX / 2.54);
-
-                return dipValue;
-            }
-
-            return 0.0; // Return 0 if unable to retrieve DPI settings
+            return inches * 96;
+        }
+        public static double PtToPx(double pt)
+        {
+            return (pt / 72) * 96;
         }
     }
 }

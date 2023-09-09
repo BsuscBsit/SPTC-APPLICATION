@@ -50,32 +50,29 @@ namespace SPTC_APPLICATION.View
 
         private void window_Loaded(object sender, RoutedEventArgs e)
         {
-            window.Width = Scaler.ConvertCentimetersToDIP(8.09, this);
-            window.Height = Scaler.ConvertCentimetersToDIP(11.2, this);
+            label1.FontSize = Scaler.PtToPx(11);
+            label2.FontSize = Scaler.PtToPx(11);
 
-            label1.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
-            label2.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
+            label3.FontSize = Scaler.PtToPx(14);
+            label4.FontSize = Scaler.PtToPx(12);
+            label5.FontSize = Scaler.PtToPx(12);
 
-            label3.FontSize = Scaler.ConvertCentimetersToDIP(0.49, this);
-            label4.FontSize = Scaler.ConvertCentimetersToDIP(0.42, this);
-            label5.FontSize = Scaler.ConvertCentimetersToDIP(0.42, this);
+            label6.FontSize = Scaler.PtToPx(10);
+            label7.FontSize = Scaler.PtToPx(11);
+            label8.FontSize = Scaler.PtToPx(11);
+            label9.FontSize = Scaler.PtToPx(10);
 
-            label6.FontSize = Scaler.ConvertCentimetersToDIP(0.35, this);
-            label7.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
-            label8.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
-            label9.FontSize = Scaler.ConvertCentimetersToDIP(0.35, this);
+            lblLicense.FontSize = Scaler.PtToPx(12);
+            lblXPDate.FontSize = Scaler.PtToPx(12);
+            lblBodyNum.FontSize = Scaler.PtToPx(72);
+            lblEmePer.FontSize = Scaler.PtToPx(11);
+            lblAddressBuilding.FontSize = Scaler.PtToPx(10);
+            lblAddressStreet.FontSize = Scaler.PtToPx(10);
+            lblContact.FontSize = Scaler.PtToPx(11);
+            lblName.FontSize = Scaler.PtToPx(12);
 
-            lblLicense.FontSize = Scaler.ConvertCentimetersToDIP(0.42, this);
-            lblXPDate.FontSize = Scaler.ConvertCentimetersToDIP(0.42, this);
-            lblBodyNum.FontSize = Scaler.ConvertCentimetersToDIP(2.54, this);
-            lblEmePer.FontSize = Scaler.ConvertCentimetersToDIP(0.35, this);
-            lblAddressBuilding.FontSize = Scaler.ConvertCentimetersToDIP(0.35, this);
-            lblAddressStreet.FontSize = Scaler.ConvertCentimetersToDIP(0.35, this);
-            lblContact.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
-            lblName.FontSize = Scaler.ConvertCentimetersToDIP(0.39, this);
-
-            imgSign.Height = Scaler.ConvertCentimetersToDIP(2.4, this);
-            viewbox1.Height = Scaler.ConvertCentimetersToDIP(0.7, this);
+            imgSign.Height = Scaler.InToDip(0.6);
+            //viewbox1.Height = Scaler.InToDip();
         }
 
 

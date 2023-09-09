@@ -306,8 +306,7 @@
                            FontSize="15"
                            FontFamily="Inter"/>
                     <TextBox x:Name="tboxAddressS"
-                            Style="{StaticResource GenericTextBox}" 
-                            Text="Sapang Palay, San Jose Del Monte Bulacan" 
+                            Style="{StaticResource GenericTextBox}"  
                             Width="164"
                             Height="31"
                             HorizontalAlignment="Right" 

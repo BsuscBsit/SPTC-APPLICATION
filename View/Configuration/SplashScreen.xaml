@@ -7,13 +7,19 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Icon="../../View/Images/icons/logo.ico"
-       Title="Splash Screen" Height="494" Width="784" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+       Title="Splash Screen" Height="350" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
     <Grid x:Name="grid" Opacity="1" Cursor="AppStarting" Margin="10,10,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="227*"/>
+            <ColumnDefinition Width="53*"/>
+        </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="tbDebugLog" HorizontalAlignment="Center" Margin="0,0,0,10" TextWrapping="Wrap" Height="18" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}" VerticalContentAlignment="Center" Opacity="0.2"/>
-        <ProgressBar x:Name="pbLoading" Height="10" Margin="0,0,0,33" VerticalAlignment="Bottom" UseLayoutRounding="True">
-           
+        <TextBox x:Name="tbDebugLog" HorizontalAlignment="Left" Margin="0,0,0,10" TextWrapping="Wrap" Height="18" VerticalAlignment="Bottom" Width="{Binding ActualWidth, ElementName=grid, Mode=OneWay}" VerticalContentAlignment="Center" Opacity="0.2" Grid.ColumnSpan="2"/>
+        <ProgressBar x:Name="pbLoading" Height="10" Margin="0,0,0,33" VerticalAlignment="Bottom" UseLayoutRounding="True" Grid.ColumnSpan="2">
+
         </ProgressBar>
+        <Label Content="Please Wait..." FontFamily="Inter" HorizontalAlignment="Left" Margin="42,215,0,0" VerticalAlignment="Top" FontSize="30" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Image Height="150" Width="150" Source="/View/Images/icons/logo.ico" Margin="65,48,12,132"/>
 
     </Grid>
 </Window>

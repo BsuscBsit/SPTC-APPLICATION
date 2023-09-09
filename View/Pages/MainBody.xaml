@@ -6,7 +6,7 @@
         Icon="../../View/Images/icons/logo.ico"
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.Pages"
         mc:Ignorable="d"
-        Title="Sapang Palay Tricycle Cooperative" Width="1280" Height="720" MinWidth="1000" MinHeight="600" WindowStartupLocation="CenterScreen">
+        Title="Sapang Palay Tricycle Cooperative" MinWidth="1000" MinHeight="600" WindowStartupLocation="CenterScreen" Height="600" WindowState="Maximized">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
