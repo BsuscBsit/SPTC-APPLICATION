@@ -16,58 +16,66 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <EventTrigger RoutedEvent="Button.MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                To="#FEF301" Duration="0:0:0.1" />
-                        <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
-                                To="Black" Duration="0:0:0.1" />
-                        <ColorAnimation
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                            To="#FEF301" Duration="0:0:0.1" />
+                            <ColorAnimation
+                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                            To="Black" Duration="0:0:0.1" />
+                            <ColorAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.Color)"
                             To="Black" Duration="0:0:0.3" />
-                        <DoubleAnimation
+                            <DoubleAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.BlurRadius)"
                             To="15" Duration="0:0:0.0" />
-                        <DoubleAnimation
+                            <DoubleAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.Opacity)"
                             To="1" Duration="0:0:0.0" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="Button.MouseLeave">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-                                To="White" Duration="0:0:0.2" />
-                        <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
-                                To="Black" Duration="0:0:0.2" />
-                        <ColorAnimation
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation
+                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                            To="White" Duration="0:0:0.2" />
+                            <ColorAnimation
+                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                            To="Black" Duration="0:0:0.2" />
+                            <ColorAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.Color)"
                             To="Transparent" Duration="0:0:0.4" />
-                        <DoubleAnimation
+                            <DoubleAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.BlurRadius)"
                             To="0" Duration="0:0:0.0" />
-                        <DoubleAnimation
+                            <DoubleAnimation
                             Storyboard.TargetProperty="(Button.Effect).(DropShadowEffect.Opacity)"
                             To="0" Duration="0:0:0.0" />
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="#FFE9E9E9" />
+                <Setter Property="Foreground" Value="Gray" />
+                <Setter Property="BorderBrush" Value="Gray"/>
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
             <EventTrigger RoutedEvent="UIElement.PreviewMouseDown">
                 <EventTrigger.Actions>
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
-                                To="Gray" Duration="0:0:0.2" />
+                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                            To="Gray" Duration="0:0:0.2" />
                             <ColorAnimation
-                                Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)"
-                                To="Transparent" Duration="0:0:0.2" />
+                            Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)"
+                            To="Transparent" Duration="0:0:0.2" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger.Actions>
@@ -77,18 +85,19 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation
-                                Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
-                                To="Black" Duration="0:0:0.1" />
+                            Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)"
+                            To="Black" Duration="0:0:0.1" />
                             <ColorAnimation
-                                Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)"
-                                To="Black" Duration="0:0:0.1" />
+                            Storyboard.TargetProperty="(Button.BorderBrush).(SolidColorBrush.Color)"
+                            To="Black" Duration="0:0:0.1" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger.Actions>
             </EventTrigger>
         </Style.Triggers>
     </Style>
-    
+
+
     <Style x:Key="GenericTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="Background" Value="White" />
@@ -279,6 +288,7 @@
                         </Border>
                     </Grid>
                 </ControlTemplate>
+
             </Setter.Value>
         </Setter>
     </Style>

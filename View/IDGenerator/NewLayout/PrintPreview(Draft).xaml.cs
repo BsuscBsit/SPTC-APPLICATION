@@ -23,7 +23,6 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
         private double zoomScale = 1.0;
         private Point panOrigin;
         private bool isPanning = false;
-        private int newvar; // just to push, remove after.
 
         public PrintPreview_Draft_()
         {
@@ -66,6 +65,20 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
 
         }
 
+        private void btnPage1_Click(object sender, RoutedEventArgs e)
+        {
+            lblPageNum.Content = "Page 1 of 2";
+            btnPage1.IsEnabled = false;
+            btnPage2.IsEnabled = true;
+        }
+
+        private void btnPage2_Click(object sender, RoutedEventArgs e)
+        {
+            lblPageNum.Content = "Page 2 of 2";
+            btnPage1.IsEnabled = true;
+            btnPage2.IsEnabled = false;
+        }
+
 
         //Zoom Functionality
         private void InitializePanning()
@@ -77,14 +90,20 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
 
         private void OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && !isPanning)
+            if (e.LeftButton == MouseButtonState.Pressed && zoomScale > 1)
             {
-                isPanning = true;
-                panOrigin = e.GetPosition(scrollViewer);
-                Mouse.OverrideCursor = Cursors.Hand;
-                scrollViewer.CaptureMouse();
+                var contentArea = new Rect(0, 0, scrollViewer.ViewportWidth, scrollViewer.ViewportHeight);
+
+                if (contentArea.Contains(e.GetPosition(scrollViewer)))
+                {
+                    isPanning = true;
+                    panOrigin = e.GetPosition(scrollViewer);
+                    Mouse.OverrideCursor = Cursors.Hand;
+                    scrollViewer.CaptureMouse();
+                }
             }
         }
+
 
         private void OnMouseMove(object sender, MouseEventArgs e)
         {
@@ -113,7 +132,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
 
         private void UpdateZoom(double newZoom)
         {
-            zoomScale = Math.Max(0.1, Math.Min(5.0, newZoom));
+            zoomScale = Math.Max(0.1, newZoom);
             zoomSlider.Value = zoomScale;
             UpdateZoomTransform();
         }
@@ -152,6 +171,6 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
         {
             UpdateZoom(zoomSlider.Value);
         }
-
+        
     }
 }
