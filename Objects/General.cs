@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using MySql.Data.MySqlClient;
@@ -45,10 +46,17 @@ namespace SPTC_APPLICATION.Objects
         {
             get
             {
-                return $"{firstname} {middlename} {lastname} {suffix}".Trim();
+                if (!string.IsNullOrEmpty(middlename))
+                {
+                    string middleInitials = string.Join("", middlename.Split(' ').Select(part => part[0]));
+                    return $"{lastname}, {firstname} {middleInitials}. {suffix}".Trim();
+                }
+
+                return $"{lastname}, {firstname} {suffix}".Trim();
             }
             private set { }
         }
+
 
         private Upsert name;
 
