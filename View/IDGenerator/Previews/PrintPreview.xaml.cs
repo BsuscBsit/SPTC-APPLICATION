@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using SPTC_APPLICATION.Objects;
 using SPTC_APPLICATION.View.IDGenerator.Hidden;
+using Image = System.Windows.Controls.Image;
 
 namespace SPTC_APPLICATION.View
 {
@@ -20,12 +22,22 @@ namespace SPTC_APPLICATION.View
         private static ID mGrid4 = null;
         private static int idcount = 0;
 
+        //Zoom Variables
+        private double zoomScale = 1.0;
+        private Point panOrigin;
+        private bool isPanning = false;
+
         public PrintPreview()
         {
             InitializeComponent();
             isFront = true;
             RenderIDs();
             checkIdCount();
+
+            //Zoom Constructors
+            InitializePanning();
+            zoomSlider.Value = zoomScale;
+            UpdateZoomText();
         }
 
         private void RenderIDs()
@@ -132,13 +144,14 @@ namespace SPTC_APPLICATION.View
                 Margin = new Thickness(0),
                 VerticalAlignment = VerticalAlignment.Center,
                 Source = new BitmapImage(new Uri("/View/Images/no_id.png", UriKind.Relative)),
+                Tag = "NullImage",
                 Opacity = 0.2
             };
         }
 
         private void Button_expand(object sender, RoutedEventArgs e)
         {
-            Button button = (Button)sender;
+            /*Button button = (Button)sender;
             Grid grid = FindVisualChild<Grid>(button);
             if (grid != null)
             {
@@ -158,7 +171,7 @@ namespace SPTC_APPLICATION.View
                         preview.Source = image.Source;
                     }
                 }
-            }
+            }*/
         }
 
         private static T FindVisualChild<T>(DependencyObject parent) where T : DependencyObject
@@ -261,20 +274,6 @@ namespace SPTC_APPLICATION.View
             idcount = 0;
         }
 
-        private void MySwitch_Back(object sender, RoutedEventArgs e)
-        {
-            // Switch is in the True state
-            isFront = false;
-            RenderIDs();
-        }
-
-        private void MySwitch_Front(object sender, RoutedEventArgs e)
-        {
-            // Switch is in the False state
-            isFront = true;
-            RenderIDs();
-        }
-
         public void NewID(ID id)
         {
 
@@ -303,5 +302,171 @@ namespace SPTC_APPLICATION.View
             checkIdCount();
         }
 
+
+        private void btnPage1_Click(object sender, RoutedEventArgs e)
+        {
+            lblPageNum.Content = "Page 1 of 2";
+            btnPage1.IsEnabled = false;
+            btnPage2.IsEnabled = true;
+            // Switch is in the False state
+            isFront = true;
+            RenderIDs();
+        }
+
+        private void btnPage2_Click(object sender, RoutedEventArgs e)
+        {
+            lblPageNum.Content = "Page 2 of 2";
+            btnPage1.IsEnabled = true;
+            btnPage2.IsEnabled = false;
+            // Switch is in the True state
+            isFront = false;
+            RenderIDs();
+        }
+
+
+        //Zoom Functionality
+        private void InitializePanning()
+        {
+            scrollViewer.PreviewMouseDown += OnMouseDown;
+            scrollViewer.PreviewMouseMove += OnMouseMove;
+            scrollViewer.PreviewMouseUp += OnMouseUp;
+        }
+
+        private void OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && zoomScale > 1)
+            {
+                var contentArea = new Rect(0, 0, scrollViewer.ViewportWidth, scrollViewer.ViewportHeight);
+
+                if (contentArea.Contains(e.GetPosition(scrollViewer)))
+                {
+                    isPanning = true;
+                    panOrigin = e.GetPosition(scrollViewer);
+                    Mouse.OverrideCursor = Cursors.Hand;
+                    scrollViewer.CaptureMouse();
+                }
+            }
+        }
+
+
+        private void OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (isPanning && scrollViewer.IsMouseCaptured)
+            {
+                Point currentPos = e.GetPosition(scrollViewer);
+                double deltaX = currentPos.X - panOrigin.X;
+                double deltaY = currentPos.Y - panOrigin.Y;
+
+                scrollViewer.ScrollToHorizontalOffset(scrollViewer.HorizontalOffset - deltaX);
+                scrollViewer.ScrollToVerticalOffset(scrollViewer.VerticalOffset - deltaY);
+
+                panOrigin = currentPos;
+            }
+        }
+
+        private void OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (isPanning)
+            {
+                isPanning = false;
+                Mouse.OverrideCursor = Cursors.Arrow;
+                scrollViewer.ReleaseMouseCapture();
+            }
+        }
+
+        private void UpdateZoom(double newZoom)
+        {
+            zoomScale = Math.Max(0.1, newZoom);
+            zoomSlider.Value = zoomScale;
+            UpdateZoomTransform();
+        }
+
+        private void UpdateZoomTransform()
+        {
+            ScaleTransform scaleTransform = new ScaleTransform(zoomScale, zoomScale);
+            zoomableGrid.LayoutTransform = scaleTransform;
+            UpdateZoomText();
+        }
+
+        private void UpdateZoomText()
+        {
+            if (zoomTextBlock != null)
+            {
+                zoomTextBlock.Text = $"Zoom: {Math.Round(zoomScale * 100)}%";
+            }
+        }
+
+        private void ZoomIn_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateZoom(zoomScale + 0.1);
+        }
+
+        private void ZoomOut_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateZoom(zoomScale - 0.1);
+        }
+
+        private void ResetZoom_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateZoom(1.0);
+        }
+
+        private void ZoomSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            UpdateZoom(zoomSlider.Value);
+        }
+
+        private void ScrollViewer_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (zoomScale == 1)
+            {
+                if (e.OriginalSource is Image image)
+                {
+                    ZoomToImage(image);
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void ZoomToImage(Image image)
+        {
+            if (zoomScale == 1)
+            {
+                int tho = 0;
+                int tvo = 0;
+                bool pan = false;
+                switch (((Grid)image.Parent).Name)
+                {
+                    case "grid1":
+                        tho = 55;
+                        tvo = 72;
+                        pan = (image.Tag?.ToString() != "NullImage");
+                        break;
+                    case "grid2":
+                        tho = 410;
+                        tvo = 72;
+                        pan = (image.Tag?.ToString() != "NullImage");
+                        break;
+                    case "grid3":
+                        tho = 55;
+                        tvo = 505;
+                        pan = (image.Tag?.ToString() != "NullImage");
+                        break;
+                    case "grid4":
+                        tho = 410;
+                        tvo = 505;
+                        pan = (image.Tag?.ToString() != "NullImage");
+                        break;
+                    default:
+                        break;
+                }
+                if (pan)
+                {
+                    UpdateZoom(2.44);
+                    scrollViewer.ScrollToHorizontalOffset(tho);
+                    scrollViewer.ScrollToVerticalOffset(tvo);
+                }
+            }
+        }
     }
 }

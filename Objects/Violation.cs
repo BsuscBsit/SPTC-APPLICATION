@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using SPTC_APPLICATION.Database;
-using SPTC_EIMS.Database;
 using System;
 
 namespace SPTC_APPLICATION.Objects
@@ -18,7 +17,7 @@ namespace SPTC_APPLICATION.Objects
         public int nameId { get; set; }
         public bool isDeleted { get; set; }
 
-        private Create violation;
+        private Upsert violation;
 
         public Violation()
         {
