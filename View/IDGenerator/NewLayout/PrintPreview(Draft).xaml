@@ -202,7 +202,7 @@
                             Foreground="Gray"
                             FontFamily="Inter"
                             Margin="15,0,0,30"/>
-                        <Button x:Name="btnGenerateDriver" Content="FOR DRIVER"
+                        <Button x:Name="btnGenerateDriver" Content="CREATE NEW ID"
                             Width="175"
                             Height="40"
                             Style="{StaticResource GenericButton}"
