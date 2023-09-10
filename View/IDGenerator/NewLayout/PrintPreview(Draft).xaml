@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
         mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
         ResizeMode="NoResize"
-        Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="545">
+        Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="525">
     <Window.Style>
         <Style TargetType="Window">
             <Setter Property="Template">
@@ -31,11 +31,11 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid Height="525" Margin="0,0,0,20" VerticalAlignment="Top">
+    <Grid Height="525" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="462"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border Height="40" Grid.Row="0" Background="#FEF301" CornerRadius="15,15,0,0"/>
         <Label Content="PRINT PREVIEW"
@@ -154,10 +154,32 @@
                 </Border>
             </Canvas>
         </Grid>
-        <Grid Grid.RowSpan="3">
-            <!--
-        <Grid x:Name="Grid0Content" Visibility="Visible" d:IsHidden="True">
-            <Image Source="/View/Images/bg_dialog.png" Stretch="Fill" StretchDirection="DownOnly" />
+        <Grid x:Name="Grid0Content" Visibility="Visible" Grid.RowSpan="3">
+            <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+                <Viewbox>
+                    <Image Source="/View/Images/bg_dialog.png" Stretch="UniformToFill">
+                        <Image.Clip>
+                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,200,150" />
+                        </Image.Clip>
+                    </Image>
+                </Viewbox>
+            </Border>
+            <Image Source="/View/Images/bg_dialog.png" Stretch="UniformToFill">
+                <Image.OpacityMask>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <Path Data="M0,0 L200,0 200,150 0,150 Z">
+                                <Path.Fill>
+                                    <SolidColorBrush Color="Black" />
+                                </Path.Fill>
+                            </Path>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </Image.OpacityMask>
+                <Image.Clip>
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="1,1,557,522" />
+                </Image.Clip>
+            </Image>
             <Grid>
                 <Border CornerRadius="10" 
                         Background="White"
@@ -180,7 +202,7 @@
                             Foreground="Gray"
                             FontFamily="Inter"
                             Margin="15,0,0,30"/>
-                        <Button x:Name="btnGenerate" Content="CREATE NEW ID"
+                        <Button x:Name="btnGenerateDriver" Content="FOR DRIVER"
                             Width="175"
                             Height="40"
                             Style="{StaticResource GenericButton}"
@@ -194,8 +216,6 @@
                     </StackPanel>
                 </Border>
             </Grid>
-        </Grid>
-        -->
         </Grid>
     </Grid>
 </Window>

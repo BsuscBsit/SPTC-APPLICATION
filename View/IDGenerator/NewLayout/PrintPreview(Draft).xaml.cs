@@ -171,6 +171,6 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
         {
             UpdateZoom(zoomSlider.Value);
         }
-        
+
     }
 }
