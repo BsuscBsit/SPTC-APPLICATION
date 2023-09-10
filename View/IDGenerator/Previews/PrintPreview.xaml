@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
         mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
         ResizeMode="NoResize"
-        Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="545">
+        Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="535">
     <Window.Style>
         <Style TargetType="Window">
             <Setter Property="Template">
@@ -26,12 +26,12 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/View/Styles.xaml" />
+                <ResourceDictionary Source="/View/Styles/ButtonsAndTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
 
-    <Grid Height="525" Margin="0,0,0,20" VerticalAlignment="Top">
+    <Grid Height="535" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -154,10 +154,25 @@
                 </Border>
             </Canvas>
         </Grid>
-        <Grid Grid.RowSpan="3">
-            <Grid x:Name="Grid0Content" Visibility="Visible" d:IsHidden="True">
-            <Image Source="/View/Images/bg_dialog.png" Stretch="Fill" StretchDirection="DownOnly" />
-            <Grid>
+        <Grid Grid.RowSpan="3" d:IsHidden="True">
+            <Grid x:Name="Grid0Content" Visibility="Visible">
+                <Image Source="/View/Images/bg_dialog.png" Stretch="UniformToFill">
+                    <Image.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Path Data="M0,0 L200,0 200,150 0,150 Z">
+                                    <Path.Fill>
+                                        <SolidColorBrush Color="Black" />
+                                    </Path.Fill>
+                                </Path>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Image.OpacityMask>
+                    <Image.Clip>
+                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,558,533" />
+                    </Image.Clip>
+                </Image>
+                <Grid>
                 <Border CornerRadius="10" 
                         Background="White"
                         HorizontalAlignment="Center" VerticalAlignment="Center">

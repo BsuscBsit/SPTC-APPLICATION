@@ -5,7 +5,13 @@
              Exit="Application_Exit"
              StartupUri="View/Configuration/SplashScreen.xaml">
     <Application.Resources>
-         
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Styles/Windows.xaml" />
+                <ResourceDictionary Source="View/Styles/ButtonsAndTextBox.xaml" />
+                <ResourceDictionary Source="View/Images/vector/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
     
 </Application>

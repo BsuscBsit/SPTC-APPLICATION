@@ -26,7 +26,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/View/Styles.xaml" />
+                <ResourceDictionary Source="/View/Styles/ButtonsAndTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -155,15 +155,6 @@
             </Canvas>
         </Grid>
         <Grid x:Name="Grid0Content" Visibility="Visible" Grid.RowSpan="3">
-            <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1">
-                <Viewbox>
-                    <Image Source="/View/Images/bg_dialog.png" Stretch="UniformToFill">
-                        <Image.Clip>
-                            <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,200,150" />
-                        </Image.Clip>
-                    </Image>
-                </Viewbox>
-            </Border>
             <Image Source="/View/Images/bg_dialog.png" Stretch="UniformToFill">
                 <Image.OpacityMask>
                     <VisualBrush>
@@ -177,7 +168,7 @@
                     </VisualBrush>
                 </Image.OpacityMask>
                 <Image.Clip>
-                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="1,1,557,522" />
+                    <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,560,524" />
                 </Image.Clip>
             </Image>
             <Grid>

@@ -56,12 +56,12 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
             {
                 printDialog.PrintVisual(frontPage, "Test Print : " + page);
                 this.Hide();
-                ControlWindow.ShowDialog("Success", "Printing " + page + " page Success!" + ((isFront) ? "\n\nFlip the Paper ID then insert Again for BackPage then proceed." : ""));
+                ControlWindow.ShowDialog("Success", page + "page was printed successfully!" + ((isFront) ? "\nPress ok to print the next page." : ""));
                 return true;
             }
             else
             {
-                ControlWindow.ShowDialog("Failed", "Printing " + page + " page Failed!");
+                ControlWindow.ShowDialog("Failed", page + " page was not printed.");
                 return false;
             }
         }

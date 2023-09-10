@@ -67,5 +67,14 @@ namespace SPTC_APPLICATION.View
             Exit = true;
             Close();
         }
+
+        private void configProceed_Click(object sender, RoutedEventArgs e)
+        {
+            brdrPrompt.Visibility = Visibility.Hidden;
+            dciWindow.Height = 430;
+            dciWindow.Width = 352;
+            dciWindow.Top = (SystemParameters.PrimaryScreenHeight - 430) / 2;
+            dciWindow.Left = (SystemParameters.PrimaryScreenWidth - 352) / 2;
+        }
     }
 }

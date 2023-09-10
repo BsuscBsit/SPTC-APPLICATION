@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Icon="..\..\View\Images\icons\logo.ico"
         ResizeMode="NoResize"
+        Style="{StaticResource CustomWindowStyle}"
         Title="Generate ID" Width="1071" Height="690" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/View/Styles.xaml" />
+                <ResourceDictionary Source="/View/Styles/ButtonsAndTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <Style x:Key="ButtonBrowse" TargetType="Button" BasedOn="{StaticResource StrokedButtonStyle}">
                 <Setter Property="Template">

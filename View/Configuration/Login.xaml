@@ -8,12 +8,10 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         Icon="../../View/Images/icons/logo.ico"
-        Title="Login" Height="350" Width="619.791666666667" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown">
+        Style="{StaticResource CustomWindowStyle}"
+        Title="Login" Height="350" Width="620" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown" Background="Transparent" AllowsTransparency="True">
     <Window.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/View/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
             <Style x:Key="PasswordVisible" TargetType="Button">
                 <Setter Property="Background" Value="White" />
                 <Setter Property="Template">
@@ -163,8 +161,24 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
+
     <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-        <Image Height="350" Width="Auto" Source="/View/Images/bg_login.png"/>
+        <Image Source="/View/Images/bg_login.png" Stretch="UniformToFill">
+            <Image.OpacityMask>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Path Data="M0,0 L200,0 200,150 0,150 Z">
+                            <Path.Fill>
+                                <SolidColorBrush Color="Black" />
+                            </Path.Fill>
+                        </Path>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Image.OpacityMask>
+            <Image.Clip>
+                <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0,0,618,348" />
+            </Image.Clip>
+        </Image>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

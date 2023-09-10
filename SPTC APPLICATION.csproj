@@ -250,6 +250,9 @@
     <Compile Include="View\IDGenerator\Hidden\PrintPaper.xaml.cs">
       <DependentUpon>PrintPaper.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\IDGenerator\NewLayout\NewGen%28Sample%29.xaml.cs">
+      <DependentUpon>NewGen%28Sample%29.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\IDGenerator\NewLayout\PrintPreview%28Draft%29.xaml.cs">
       <DependentUpon>PrintPreview%28Draft%29.xaml</DependentUpon>
     </Compile>
@@ -367,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\IDGenerator\NewLayout\NewGen%28Sample%29.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\IDGenerator\NewLayout\PrintPreview%28Draft%29.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -379,13 +386,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Images\vector\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\MainBody.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Styles.xaml">
+    <Page Include="View\Styles\ButtonsAndTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Styles\Windows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Test.xaml">
       <Generator>MSBuild:Compile</Generator>
