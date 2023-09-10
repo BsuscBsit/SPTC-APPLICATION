@@ -20,7 +20,7 @@ namespace SPTC_APPLICATION.View
 
             if (type == General.OPERATOR)
             {
-                lblName.Text = franchise.Operator.name.wholename;
+                lblName.Text = franchise.Operator.name.wholename.ToUpper();
                 lblPosition.Text = type.ToString();
                 if (franchise.Operator.image != null)
                 {
@@ -29,7 +29,7 @@ namespace SPTC_APPLICATION.View
             }
             else
             {
-                lblName.Text = franchise.Driver_day.name.wholename;
+                lblName.Text = franchise.Driver_day.name.wholename.ToUpper();
                 lblPosition.Text = "DRIVER";
                 if (franchise.Driver_day.image != null)
                 {

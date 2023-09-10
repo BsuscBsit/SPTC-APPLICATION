@@ -308,6 +308,11 @@ namespace SPTC_APPLICATION.View
             lblPageNum.Content = "Page 1 of 2";
             btnPage1.IsEnabled = false;
             btnPage2.IsEnabled = true;
+            g1Border.BorderBrush = Brushes.Black;
+            g2Border.BorderBrush = Brushes.Black;
+            g3Border.BorderBrush = Brushes.Black;
+            g4Border.BorderBrush = Brushes.Black;
+
             // Switch is in the False state
             isFront = true;
             RenderIDs();
@@ -315,14 +320,19 @@ namespace SPTC_APPLICATION.View
 
         private void btnPage2_Click(object sender, RoutedEventArgs e)
         {
+            SolidColorBrush brush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#33000000"));
             lblPageNum.Content = "Page 2 of 2";
             btnPage1.IsEnabled = true;
             btnPage2.IsEnabled = false;
+            g1Border.BorderBrush = brush;
+            g2Border.BorderBrush = brush;
+            g3Border.BorderBrush = brush;
+            g4Border.BorderBrush = brush;
+
             // Switch is in the True state
             isFront = false;
             RenderIDs();
         }
-
 
         //Zoom Functionality
         private void InitializePanning()
