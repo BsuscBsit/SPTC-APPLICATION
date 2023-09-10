@@ -32,6 +32,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.NewLayout
             InitializePanning();
             zoomSlider.Value = zoomScale;
             UpdateZoomText();
+            int pusher;
 
         }
 
