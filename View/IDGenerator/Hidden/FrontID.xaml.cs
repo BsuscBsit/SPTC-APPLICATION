@@ -20,8 +20,7 @@ namespace SPTC_APPLICATION.View
 
             if (type == General.OPERATOR)
             {
-                string mi = (franchise.Operator.name.middlename.Length > 0) ? franchise.Operator.name.middlename[0].ToString() + ". " : "";
-                lblName.Text = franchise.Operator.name.firstname + " " + mi + franchise.Operator.name.lastname;
+                lblName.Text = franchise.Operator.name.wholename;
                 lblPosition.Text = type.ToString();
                 if (franchise.Operator.image != null)
                 {
@@ -30,8 +29,7 @@ namespace SPTC_APPLICATION.View
             }
             else
             {
-                string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
-                lblName.Text = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;
+                lblName.Text = franchise.Driver_day.name.wholename;
                 lblPosition.Text = "DRIVER";
                 if (franchise.Driver_day.image != null)
                 {

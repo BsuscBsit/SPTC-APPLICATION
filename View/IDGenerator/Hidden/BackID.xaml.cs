@@ -16,8 +16,7 @@ namespace SPTC_APPLICATION.View
         {
             if (type == General.OPERATOR)
             {
-                string mi = (franchise.Operator.name.middlename.Length > 0) ? franchise.Operator.name.middlename[0].ToString() + ". " : "";
-                lblName.Content = franchise.Operator.name.firstname + " " + mi + franchise.Operator.name.lastname;
+                lblName.Content = franchise.Operator.name.wholename;
 
                 lblLicense.Content = franchise.licenceNO;
                 lblBodyNum.Content = franchise.bodynumber;
@@ -32,8 +31,7 @@ namespace SPTC_APPLICATION.View
             }
             else
             {
-                string mi = (franchise.Driver_day.name.middlename.Length > 0) ? franchise.Driver_day.name.middlename[0].ToString() + ". " : "";
-                lblName.Content = franchise.Driver_day.name.firstname + " " + mi + franchise.Driver_day.name.lastname;
+                lblName.Content = franchise.Driver_day.name.wholename;
 
                 lblLicense.Content = franchise.licenceNO;
                 lblBodyNum.Content = franchise.bodynumber;
