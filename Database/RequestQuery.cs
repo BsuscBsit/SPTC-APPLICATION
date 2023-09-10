@@ -55,6 +55,7 @@ namespace SPTC_APPLICATION.Database
         public static string SHARE_CAPITAL = "tbl_share_capital_ledger";
         public static string LONG_TERM_LOAN = "tbl_long_term_loan_ledger";
         public static string VIOLATION_TYPE = "tbl_violation_type";
+        public static string VIOLATION = "tbl_violation";
 
     }
     public static class Select
@@ -99,6 +100,7 @@ namespace SPTC_APPLICATION.Database
         public static string LAST_FRANCHISE_ID = "last_franchise_id";
         public static string PAYMENT_ID = "payment_id";
         public static string FRANCHISE_ID = "franchise_id";
+        public static string VIOLATION_TYPE_ID = "violation_type_id";
         public static string ID = "id";
 
         // Employee
@@ -171,6 +173,11 @@ namespace SPTC_APPLICATION.Database
         //VIOLATION_TYPES
         public static string IS_FOR_DRIVER = "is_for_driver";
         public static string NUM_OF_DAYS = "num_of_days";
+
+        //VIOLATION
+        public static string VIOLATION_LEVEL_COUNT = "violation_level_count";
+        public static string SUSPENSION_START = "suspension_start";
+        public static string SUSPENSION_END = "suspension_end";
     }
 
     public enum CRUDControl

@@ -286,7 +286,7 @@ CREATE TABLE `tbl_violation` (
   `franchise_id` int(11) NOT NULL DEFAULT -1,
   `violation_level_count` int(11) NOT NULL DEFAULT 0,
   `violation_type_id` int(11) NOT NULL DEFAULT -1,
-  `violation_date` date NOT NULL DEFAULT current_timestamp(),
+  `date` date NOT NULL DEFAULT current_timestamp(),
   `suspension_start` date DEFAULT NULL,
   `suspention_end` date DEFAULT NULL,
   `remarks` varchar(255) DEFAULT NULL,
