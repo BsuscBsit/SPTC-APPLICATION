@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
         mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
         ResizeMode="NoResize"
-        Title="Print Preview" WindowStartupLocation="CenterScreen" Height="610" Width="536" HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="545">
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Border Background="White"
+                                BorderBrush="Black"
+                                BorderThickness="1,1,1,1"
+                                CornerRadius="15" ClipToBounds="True">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -14,13 +30,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Margin="0,6,0,6">
+
+    <Grid Height="525" Margin="0,0,0,20" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="462"/>
         </Grid.RowDefinitions>
-        <Rectangle Height="40" Grid.Row="0" Fill="#FEF301"/>
+        <Border Height="40" Grid.Row="0" Background="#FEF301" CornerRadius="15,15,0,0"/>
         <Label Content="PRINT PREVIEW"
                    Height="Auto" 
                    HorizontalAlignment="Left" 
@@ -31,14 +48,14 @@
                    FontFamily="Inter"
                    Grid.Row="1"
                    Margin="40,0,0,0"/>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="28,0,0,0" Height="451" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="347"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <ScrollViewer x:Name="scrollViewer" Grid.Column="0"
-                      HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto" HorizontalAlignment="Center" VerticalAlignment="Top">
+                      HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Visible">
                 <Grid x:Name="zoomableGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Border x:Name="Content" Grid.Column="0" BorderBrush="Black" BorderThickness="1" Width="326" Height="422" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Grid x:Name="frontPage">
@@ -50,25 +67,25 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Row="0" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Row="0" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,9,9">
                                 <Grid x:Name="grid1" >
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="0" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Row="0" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="9,0,0,9">
                                 <Grid x:Name="grid2">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,9,9,0">
                                 <Grid x:Name="grid3">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="2" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Border Grid.Row="2" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,9,0,0">
                                 <Grid x:Name="grid4">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2"/>
                                 </Grid>
@@ -79,28 +96,65 @@
 
                 </Grid>
             </ScrollViewer>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="15,0,20,0">
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="20,0,0,0">
                 <Button x:Name="btnCancelp" Content="CANCEL" Width="135" Height="40"
                 Style="{StaticResource GenericButton}" Click="btnCancel_Click" Margin="0,0,0,20"/>
                 <Button x:Name="btnAddNew" Content="ADD NEW ID" Width="135" Height="40"
                 Style="{StaticResource GenericButton}" Click="btnAddNew_Click" Margin="0,0,0,20"/>
                 <Button x:Name="btnPrint" Content="PRINT" Width="135" Height="40"
                 Style="{StaticResource GenericButton}" Click="btnPrint_Click"/>
-                <Grid Margin="0,24,0,0">
+                <Grid VerticalAlignment="Center" Margin="0,190,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="34"/>
                     </Grid.RowDefinitions>
-                    <TextBlock x:Name="zoomTextBlock" VerticalAlignment="Center" Text="0%" HorizontalAlignment="Center" Margin="0,0,0,7"/>
-                    <Button Content="-" Click="ZoomOut_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Grid.Row="1"/>
-                    <Slider x:Name="zoomSlider" Width="100" Minimum="0.1" Maximum="5" Value="1" ValueChanged="ZoomSlider_ValueChanged" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1"/>
-                    <Button Content="+" Click="ZoomIn_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Grid.Row="1"/>
-                    <Button Content="Reset Zoom" Click="ResetZoom_Click" Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2" Width="89"/>
+                    <TextBlock x:Name="zoomTextBlock" VerticalAlignment="Center" Text="0%" HorizontalAlignment="Center" Margin="0,0,0,7" FontSize="14"/>
+                    <Slider x:Name="zoomSlider" Minimum="0.1" Maximum="5" Value="1" ValueChanged="ZoomSlider_ValueChanged" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Button Style="{StaticResource GenericButton}" Content="-" Click="ZoomOut_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="25" Grid.Row="2" Height="25"/>
+                    <Button x:Name="btnResetZoom" Style="{StaticResource GenericButton}" Content="Reset" Click="ResetZoom_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="2" Width="67" Height="25"/>
+                    <Button Style="{StaticResource GenericButton}" Content="+" Click="ZoomIn_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="25" Grid.Row="2" Height="25"/>
                 </Grid>
             </StackPanel>
+            <Canvas Grid.Column="0" Height="49" Width="181" Margin="17,328,0,0" HorizontalAlignment="Left">
+                <Border BorderBrush="Gray" BorderThickness="1" Background="White" CornerRadius="10" Padding="15,10,14,10" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5" Color="Gray" Opacity="0.3" BlurRadius="15"/>
+                    </Border.Effect>
+                    <Border.Style>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="Opacity" Value="0.5" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="1.0" Duration="0:0:0.2" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Opacity" To="0.2" Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <Button x:Name="btnPage1" Width="25" Height="25" Style="{StaticResource GenericButton}" Content="&lt;" Click="btnPage1_Click" IsEnabled="False"/>
+                        <Grid Width="100">
+                            <Label x:Name="lblPageNum" FontFamily="Inter" FontWeight="SemiBold" Content="Page 1 of 2" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <Button x:Name="btnPage2" Width="25" Height="25" Style="{StaticResource GenericButton}" Content="&gt;" Click="btnPage2_Click"/>
+                    </StackPanel>
+                </Border>
+            </Canvas>
         </Grid>
-        <Grid Margin="0,0,0,2" Grid.RowSpan="3">
+        <Grid Grid.RowSpan="3">
             <!--
         <Grid x:Name="Grid0Content" Visibility="Visible" d:IsHidden="True">
             <Image Source="/View/Images/bg_dialog.png" Stretch="Fill" StretchDirection="DownOnly" />
