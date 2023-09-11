@@ -11,7 +11,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
     /// </summary>
     public partial class PrintPaper : Window
     {
-
+        double dpiScale = DpiHelper.GetDpiScale();
         Border[] borders;
         public PrintPaper()
         {
@@ -27,9 +27,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
 
         private void ChangeHW()
         {
-            double dpiScale = DpiHelper.GetDpiScale();
-
-            this.Width = 8.25 * dpiScale;  // 8.5 inches * DPI scale
+            this.Width = 8.55 * dpiScale;  // 8.5 inches * DPI scale
             this.Height = 11 * dpiScale;  // 11 inches * DPI scale
         }
 
