@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System.Drawing;
+using System.Windows;
 using System.Windows.Controls;
+using Image = System.Windows.Controls.Image;
 
 namespace SPTC_APPLICATION.View.IDGenerator.Hidden
 {
@@ -13,11 +15,28 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
         public PrintPaper()
         {
             InitializeComponent();
+            ChangeHW();
             borders = new Border[4];
             borders[0] = brd1;
             borders[1] = brd2;
             borders[2] = brd3;
             borders[3] = brd4;
+
+        }
+
+        private void ChangeHW()
+        {
+
+            PresentationSource source = PresentationSource.FromVisual(this);
+
+            if (source?.CompositionTarget != null)
+            {
+                double dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
+                double dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
+
+                this.Width = 8.5 * dpiX;  // 8.5 inches * DPI in X direction
+                this.Height = 11 * dpiY;  // 11 inches * DPI in Y direction
+            }
 
         }
 
