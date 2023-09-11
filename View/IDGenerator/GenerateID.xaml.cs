@@ -185,9 +185,7 @@ namespace SPTC_APPLICATION.View
         {
                 // Switch is in the True state
                 isDriver = false;
-                drvOrOprt.Content = "OPERATOR";
-                lblPhoto.Content = "Operator's Photo";
-                lblsign.Content = "Operator's Signature";
+                drvOrOprt.Content = "Create this ID for\nOperator.";
             
         }
 
@@ -195,9 +193,7 @@ namespace SPTC_APPLICATION.View
         {
                 // Switch is in the False state
                 isDriver = true;
-                drvOrOprt.Content = "DRIVER";
-                lblPhoto.Content = "Driver's Photo";
-                lblsign.Content = "Driver's Signature";
+                drvOrOprt.Content = "Create this ID for\nDriver.";
             
         }
 
