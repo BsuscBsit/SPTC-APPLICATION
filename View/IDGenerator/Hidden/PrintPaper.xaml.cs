@@ -54,14 +54,14 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
             PrintDialog printDialog = new PrintDialog();
             if (printDialog.ShowDialog() == true)
             {
-                printDialog.PrintVisual(frontPage, "Test Print : " + page);
+                printDialog.PrintVisual(frontPage, "Printing : " + page + " page");
                 this.Hide();
-                ControlWindow.ShowDialog("Success", page + "page was printed successfully!" + ((isFront) ? "\nPress ok to print the next page." : ""));
+                ControlWindow.ShowDialog("Success", page + "page was printed successfully!" + ((isFront) ? "\nPress ok to print the next page." : ""), Icons.NOTIFY);
                 return true;
             }
             else
             {
-                ControlWindow.ShowDialog("Failed", page + " page was not printed.");
+                ControlWindow.ShowDialog("Failed", page + " page was not printed.", Icons.ERROR);
                 return false;
             }
         }
