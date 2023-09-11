@@ -25,8 +25,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Border Height="40" Grid.Row="0" Background="#FEF301" CornerRadius="15,15,0,0" VerticalAlignment="Center"/>
-        <StackPanel Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30,0,30,0">
-            <ContentControl x:Name="messageicon" Content="{StaticResource OctagonWarning}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" Width="64" Height="64" MaxWidth="64" MaxHeight="64"/>
+        <StackPanel Orientation="Horizontal"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,0,15,0">
+            <ContentControl x:Name="messageicon" Content="{StaticResource TriangleWarning}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,15,0" Width="64" Height="64" MaxWidth="64" MaxHeight="64"/>
             <Grid Grid.Column="1" HorizontalAlignment="Left">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -36,6 +36,6 @@
                 <Label x:Name="lblContent" Grid.Row="1" Content="CONTENT" FontWeight="Medium" FontSize="16" FontFamily="Inter" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             </Grid>
         </StackPanel>
-        <Button Grid.Row="2" Style="{StaticResource GenericButton}" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="172" Height="40" Click="Button_Click" Margin="20,0,20,20"/>
+        <Button Grid.Row="2" Style="{StaticResource GenericButton}" Content="OK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="172" Height="40" Click="Button_Click" Margin="10,0,10,20"/>
     </Grid>
 </Window>

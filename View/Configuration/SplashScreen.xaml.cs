@@ -10,8 +10,5 @@ namespace SPTC_APPLICATION.View
             InitializeComponent();
             Controller.StartInitialization(this, pbLoading, tbDebugLog);
         }
-
-
-
     }
 }
