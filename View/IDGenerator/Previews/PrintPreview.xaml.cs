@@ -268,15 +268,21 @@ namespace SPTC_APPLICATION.View
                     }
                 }
             }
+            
+            checkIdCount();
+        }
+
+        private void SaveAndClearID()
+        {
             //Save to database and clear print paper
-            /*mGrid1?.SaveInfo();
+            mGrid1?.SaveInfo();
             mGrid2?.SaveInfo();
             mGrid3?.SaveInfo();
             mGrid4?.SaveInfo();
 
-            ResetPrintData();*/
-            checkIdCount();
+            ResetPrintData();
         }
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
