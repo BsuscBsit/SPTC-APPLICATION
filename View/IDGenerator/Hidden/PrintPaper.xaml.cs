@@ -29,7 +29,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
         {
             double dpiScale = DpiHelper.GetDpiScale();
 
-            this.Width = 8.5 * dpiScale;  // 8.5 inches * DPI scale
+            this.Width = 8.25 * dpiScale;  // 8.5 inches * DPI scale
             this.Height = 11 * dpiScale;  // 11 inches * DPI scale
         }
 
