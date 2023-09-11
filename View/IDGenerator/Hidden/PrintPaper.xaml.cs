@@ -89,6 +89,21 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                 printDialog.PrintVisual(frontPage, "Printing : " + page + " page");
                 this.Hide();
                 ControlWindow.ShowDialog("Success", page + " page was printed successfully!" + ((isFront) ? "\nPress OK to print the next page." : ""), Icons.NOTIFY);
+                foreach(ID id in arr)
+                {
+                    if(id != null)
+                    {
+                        if (isFront)
+                        {
+                            id.incrementFrontPrint();
+                        }
+                        else
+                        {
+                            id.incrementBackPrint();
+                        }
+                    }
+                }
+
                 return true;
             }
             else

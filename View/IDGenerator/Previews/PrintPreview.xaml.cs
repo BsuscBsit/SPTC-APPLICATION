@@ -281,6 +281,13 @@ namespace SPTC_APPLICATION.View
             mGrid4?.SaveInfo();
 
             ResetPrintData();
+            foreach (ID id in new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }) {
+                if(id != null)
+                {
+                    EventLogger.Post("ID :" + id.franchise.bodynumber + " Front page has been printed " + id.FrontPrint);
+                    EventLogger.Post("ID :" + id.franchise.bodynumber + " Back page has been printed " + id.BackPrint);
+                }
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
