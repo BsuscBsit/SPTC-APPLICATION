@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using Image = System.Windows.Controls.Image;
@@ -10,7 +11,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
     /// </summary>
     public partial class PrintPaper : Window
     {
-
+        double dpiScale = DpiHelper.GetDpiScale();
         Border[] borders;
         public PrintPaper()
         {
@@ -26,18 +27,8 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
 
         private void ChangeHW()
         {
-
-            PresentationSource source = PresentationSource.FromVisual(this);
-
-            if (source?.CompositionTarget != null)
-            {
-                double dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
-                double dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
-
-                this.Width = 8.5 * dpiX;  // 8.5 inches * DPI in X direction
-                this.Height = 11 * dpiY;  // 11 inches * DPI in Y direction
-            }
-
+            this.Width = 8.55 * dpiScale;  // 8.5 inches * DPI scale
+            this.Height = 11 * dpiScale;  // 11 inches * DPI scale
         }
 
         public bool StartPrint(ID[] arr, bool isFront)
@@ -84,5 +75,20 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                 return false;
             }
         }
+
+ 
+
+        public class DpiHelper
+        {
+        [DllImport("user32.dll")]
+        public static extern uint GetDpiForSystem();
+
+        public static double GetDpiScale()
+        {
+            uint dpi = GetDpiForSystem();
+            return dpi / 96.0; // Standard DPI is 96
+        }
     }
+
+}
 }
