@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
@@ -226,7 +227,7 @@ namespace SPTC_APPLICATION.View
 
         }
 
-        private void BtnStartCam_Click(object sender, RoutedEventArgs e)
+        private async void BtnStartCam_Click(object sender, RoutedEventArgs e)
         {
             if (videoSource != null)
             {
@@ -234,6 +235,7 @@ namespace SPTC_APPLICATION.View
                 {
                     try
                     {
+                        btnStartCam.IsEnabled = false;
                         ((System.Windows.Controls.Button)sender).Content = "Capture Image";
                         pbCameraOpen.Visibility = Visibility.Visible;
                         pbCameraOpen.Value = pbCameraOpen.Minimum;
@@ -241,6 +243,11 @@ namespace SPTC_APPLICATION.View
 
 
                         InitializeCamera();
+
+                        //Short delay. nag lalag/crash minsan pag binigla eh.
+                        await Task.Delay(TimeSpan.FromSeconds(3));
+                        btnStartCam.IsEnabled = true;
+
 
                     }
                     catch (Exception ex)

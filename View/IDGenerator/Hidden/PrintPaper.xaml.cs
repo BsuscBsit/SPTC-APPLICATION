@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Shapes;
 using Image = System.Windows.Controls.Image;
 
 namespace SPTC_APPLICATION.View.IDGenerator.Hidden
@@ -11,7 +11,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
     /// </summary>
     public partial class PrintPaper : Window
     {
-        double dpiScale = DpiHelper.GetDpiScale();
+        //double dpiScale = DpiHelper.GetDpiScale();
         Border[] borders;
         public PrintPaper()
         {
@@ -27,8 +27,18 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
 
         private void ChangeHW()
         {
-            this.Width = 8.55 * dpiScale;  // 8.5 inches * DPI scale
-            this.Height = 11 * dpiScale;  // 11 inches * DPI scale
+
+            PresentationSource source = PresentationSource.FromVisual(this);
+
+            if (source?.CompositionTarget != null)
+            {
+                //double dpiX = 96.0 * source.CompositionTarget.TransformToDevice.M11;
+                //double dpiY = 96.0 * source.CompositionTarget.TransformToDevice.M22;
+
+                this.Width = 8.5 * 96.0;  // 8.5 inches * DPI in X direction
+                this.Height = 11 * 96.0;  // 11 inches * DPI in Y direction
+            }
+
         }
 
         public bool StartPrint(ID[] arr, bool isFront)
@@ -43,6 +53,16 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                         borders[i].Child = arr[i].RenderFrontID();
                     }
                 }
+
+                /* Pwede gamitin sa paggawa ng panibagong feature "print alignment program" ganun.
+                 * Pwede iadjust yung paper size, mag test print kahit yung mismong border lang
+                 * ng ID. Tapos ito, pwede i-adjust.
+                 * Itong margin na to ang iaadjust para maitulak yung front page paloob.*/
+                Thickness newMargin = new Thickness(24.67712, 0, 0, 0);
+                frontPage.Margin = newMargin;
+
+
+                frontPage.HorizontalAlignment = HorizontalAlignment.Left;
             }
             else
             {
@@ -57,6 +77,8 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                     }
 
                 }
+
+                frontPage.HorizontalAlignment = HorizontalAlignment.Right;
             }
 
             string page = (isFront) ? "Front" : "Back";
@@ -75,20 +97,5 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                 return false;
             }
         }
-
- 
-
-        public class DpiHelper
-        {
-        [DllImport("user32.dll")]
-        public static extern uint GetDpiForSystem();
-
-        public static double GetDpiScale()
-        {
-            uint dpi = GetDpiForSystem();
-            return dpi / 96.0; // Standard DPI is 96
-        }
     }
-
-}
 }
