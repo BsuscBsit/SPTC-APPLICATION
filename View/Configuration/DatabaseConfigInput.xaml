@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Icon="../../View/Images/icons/logo.ico"
         Style="{StaticResource CustomWindowStyle}"
-        Title="DatabaseConfigInput" Height="235" Width="440" WindowStartupLocation="CenterScreen" Topmost="True" AllowsTransparency="True" Background="Transparent">
+        Title="DatabaseConfigInput" Height="235" Width="425" WindowStartupLocation="CenterScreen" Topmost="True" AllowsTransparency="True" Background="Transparent">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -85,7 +85,7 @@
                 </Grid.RowDefinitions>
                 <Border Height="40" Grid.Row="0" Background="#FEF301" CornerRadius="15,15,0,0" VerticalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ContentControl Content="{StaticResource OctagonWarning}"/>
+                    <ContentControl Content="{StaticResource OctagonError}"/>
                     <Label Content="An error has occurred.&#xD;&#xA;We apologize for the inconvenience." FontFamily="Inter" FontWeight="Medium" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,22">

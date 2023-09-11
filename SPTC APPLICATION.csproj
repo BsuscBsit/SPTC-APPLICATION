@@ -250,12 +250,6 @@
     <Compile Include="View\IDGenerator\Hidden\PrintPaper.xaml.cs">
       <DependentUpon>PrintPaper.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\IDGenerator\NewLayout\NewGen%28Sample%29.xaml.cs">
-      <DependentUpon>NewGen%28Sample%29.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\IDGenerator\NewLayout\PrintPreview%28Draft%29.xaml.cs">
-      <DependentUpon>PrintPreview%28Draft%29.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\IDGenerator\Previews\GeneratedIDPreview.xaml.cs">
       <DependentUpon>GeneratedIDPreview.xaml</DependentUpon>
     </Compile>
@@ -369,14 +363,6 @@
     <Page Include="View\IDGenerator\Hidden\PrintPaper.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\IDGenerator\NewLayout\NewGen%28Sample%29.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\IDGenerator\NewLayout\PrintPreview%28Draft%29.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\IDGenerator\Previews\GeneratedIDPreview.xaml">
       <Generator>MSBuild:Compile</Generator>

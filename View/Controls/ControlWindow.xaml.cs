@@ -41,11 +41,11 @@ namespace SPTC_APPLICATION.View
                 switch (icon)
                 {
                     case Icons.NOTIFY:
-                        Viewbox circleNotificationIcon = (Viewbox)this.FindResource("CircleNotification");
+                        Viewbox circleNotificationIcon = (Viewbox)this.FindResource("CircleInform");
                         messageicon.Content = circleNotificationIcon;
                         break;
                     case Icons.ERROR:
-                        Viewbox diamondError = (Viewbox)this.FindResource("DiamondError");
+                        Viewbox diamondError = (Viewbox)this.FindResource("OctagonError");
                         messageicon.Content = diamondError;
                         break;
                     default: break;

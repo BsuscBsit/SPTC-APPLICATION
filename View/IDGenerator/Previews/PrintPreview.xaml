@@ -3,26 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SPTC_APPLICATION.View.IDGenerator.NewLayout"
         mc:Ignorable="d" Icon="../../../View/Images/icons/logo.ico"
         ResizeMode="NoResize"
+        Style="{StaticResource CustomWindowStyle}"
         Title="Print Preview" WindowStartupLocation="CenterScreen" Width="560" WindowStyle="None" Background="Transparent" AllowsTransparency="True" Height="535">
-    <Window.Style>
-        <Style TargetType="Window">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Window">
-                        <Border Background="White"
-                                BorderBrush="Black"
-                                BorderThickness="1,1,1,1"
-                                CornerRadius="15" ClipToBounds="True">
-                            <ContentPresenter />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Style>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -67,25 +51,25 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Row="0" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,9,9">
+                            <Border x:Name="g1Border" Grid.Row="0" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,9,9">
                                 <Grid x:Name="grid1" >
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2" Tag="NullImage" Stretch="UniformToFill"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="0" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="9,0,0,9">
+                            <Border x:Name="g2Border" Grid.Row="0" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="9,0,0,9">
                                 <Grid x:Name="grid2">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2" Tag="NullImage" Stretch="UniformToFill"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="2" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,9,9,0">
+                            <Border x:Name="g3Border" Grid.Row="2" Grid.Column="0" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,9,9,0">
                                 <Grid x:Name="grid3">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2" Tag="NullImage" Stretch="UniformToFill"/>
                                 </Grid>
 
                             </Border>
-                            <Border Grid.Row="2" Grid.Column="1" BorderBrush="black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,9,0,0">
+                            <Border x:Name="g4Border" Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="1" Width="130.56" Height="169.728" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,9,0,0">
                                 <Grid x:Name="grid4">
                                     <Image Margin="0,0,0,0" Source="/View/Images/no_id.png" Opacity="0.2" Tag="NullImage" Stretch="UniformToFill"/>
                                 </Grid>
@@ -97,12 +81,12 @@
                 </Grid>
             </ScrollViewer>
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="20,0,0,0">
-                <Button x:Name="btnCancelp" Content="CANCEL" Width="135" Height="40"
-                Style="{StaticResource GenericButton}" Click="btnCancel_Click" Margin="0,0,0,20"/>
+                <Button x:Name="btnPrint" Content="PRINT" Width="135" Height="40"
+                Style="{StaticResource GenericButton}" Click="btnPrint_Click" Margin="0,0,0,20"/>
                 <Button x:Name="btnAddNew" Content="ADD NEW ID" Width="135" Height="40"
                 Style="{StaticResource GenericButton}" Click="btnAddNew_Click" Margin="0,0,0,20"/>
-                <Button x:Name="btnPrint" Content="PRINT" Width="135" Height="40"
-                Style="{StaticResource GenericButton}" Click="btnPrint_Click"/>
+                <Button x:Name="btnCancelp" Content="CANCEL" Width="135" Height="40"
+                Style="{StaticResource GenericButton}" Click="btnCancel_Click"/>
                 <Grid VerticalAlignment="Center" Margin="0,190,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -173,12 +157,12 @@
                     </Image.Clip>
                 </Image>
                 <Grid>
-                <Border CornerRadius="10" 
+                    <Border CornerRadius="10" 
                         Background="White"
                         HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <StackPanel Orientation="Vertical" Width="400">
-                        <Border Height="40" Background="#FEF301" CornerRadius="10,10,0,0"/>
-                        <Label Content="GENERATE ID" 
+                        <StackPanel Orientation="Vertical" Width="400">
+                            <Border Height="40" Background="#FEF301" CornerRadius="10,10,0,0"/>
+                            <Label Content="GENERATE ID" 
                            Height="Auto" 
                            HorizontalAlignment="Left" 
                            VerticalAlignment="Center"
@@ -187,28 +171,28 @@
                            FontSize="20"
                            FontFamily="Inter"
                            Margin="15,0,0,0"/>
-                        <Label Content="Print preview is empty." 
+                            <Label Content="Print preview is empty." 
                             Height="Auto"
                             FontWeight="SemiBold"
                             FontSize="14"
                             Foreground="Gray"
                             FontFamily="Inter"
                             Margin="15,0,0,30"/>
-                        <Button x:Name="btnGenerate" Content="CREATE NEW ID"
+                            <Button x:Name="btnGenerate" Content="CREATE NEW ID"
                             Width="175"
                             Height="40"
                             Style="{StaticResource GenericButton}"
                             Margin="0,0,0,20" Click="btnAddNew_Click"/>
-                        <Button x:Name="btnExit" Content="EXIT"
+                            <Button x:Name="btnExit" Content="EXIT"
                             Width="175"
                             Height="40"
                             Style="{StaticResource GenericButton}"
                             Margin="0,0,0,40" Click="btnExit_Click"/>
 
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
             </Grid>
-        </Grid>
         </Grid>
     </Grid>
 </Window>

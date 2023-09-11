@@ -9,7 +9,7 @@
         WindowStyle="None"
         Icon="../../View/Images/icons/logo.ico"
         Style="{StaticResource CustomWindowStyle}"
-        Title="Login" Height="350" Width="620" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown" Background="Transparent" AllowsTransparency="True">
+        Title="Login" Height="350" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewKeyDown="Window_PreviewKeyDown" Background="Transparent" AllowsTransparency="True" Width="620">
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="PasswordVisible" TargetType="Button">
@@ -189,7 +189,7 @@
                 <StackPanel Orientation="Vertical" Margin="25,0,25,0" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid Height="91" Margin="0,0,0,40">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5" />
+                            <ColumnDefinition Width="7" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Rectangle Height="Auto" Grid.Column="0">
@@ -212,16 +212,16 @@
                                    FontSize="15" Margin="5,0,0,0"/>
                         </StackPanel>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="5,0,5,0">
                         <ComboBox x:Name="cbUser" VerticalAlignment="Top" IsReadOnly="True" SelectedIndex="0" Margin="0,10,0,20" Height="40" Style="{StaticResource LocalComboBox}"
                               FontFamily="Inter"
                               FontWeight="SemiBold">
-                            
+
                         </ComboBox>
 
                         <Label Content="Position" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="5,0,5,0" VerticalAlignment="Top" Background="White" Foreground="Gray" FontFamily="Inter"/>
                     </Grid>
-                    <Grid>
+                    <Grid Margin="5,0,5,0">
                         <Label x:Name="pbHint" Content="Password" 
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"
@@ -251,14 +251,25 @@
                             Visibility="Hidden"
                             Foreground="Gray" Margin="10,0,0,0"/>
                     </Grid>
-                    <Button x:Name="btnLogin" 
-                        Content="LOG IN" Style="{StaticResource GenericButton}" Click="btnLogin_Click" Height="40" Margin="0,20,0,0"/>
+                    <Grid Margin="0,20,0,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Hidden">
+                            <Button x:Name="btnLogin" 
+                        Content="LOG IN" Style="{StaticResource GenericButton}" Click="btnLogin_Click" Height="40" Width="148"/>
+                            <Button x:Name="btnExit" 
+                        Content="EXIT" Style="{StaticResource GenericButton}" Click="btnLogin_Click" Height="40" Width="79" Margin="19,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="btnLogin1" 
+                            Content="LOG IN" Style="{StaticResource GenericButton}" Click="btnLogin_Click" Height="40" Width="148"/>
+                        </StackPanel>
+
+                    </Grid>
                 </StackPanel>
             </Grid>
         </Grid>
-        <Button x:Name="imgClose" HorizontalAlignment="Right" Height="28" Margin="0,8,8,0" VerticalAlignment="Top" Width="28" Click="imgClose_Click" Background="Transparent" BorderBrush="Transparent">
-            <Image Source="/View/Images/close-button.png" />
-        </Button>
+        <Button x:Name="imgClose" Content ="x" HorizontalAlignment="Right" Height="28" Margin="0,17,17,0" VerticalAlignment="Top" Width="28" Click="imgClose_Click" Style="{StaticResource GenericButton}"/>
+
+
 
     </Grid>
 </Window>
