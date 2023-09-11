@@ -65,12 +65,12 @@ namespace SPTC_APPLICATION.Database
                 }
                 else
                 {
-                    return ControlWindow.ShowDialog("Wrong Password", "Username and Password not Match.");
+                    return ControlWindow.ShowDialog("Wrong Password", "Username and Password not Match.", Icons.ERROR);
                 }
             }
             catch (MySqlException ex)
             {
-                return ControlWindow.ShowDialog("TRY AGAIN", "Exception Occurred: \n" + ex.Message);
+                return ControlWindow.ShowDialog("TRY AGAIN", "Exception Occurred: \n" + ex.Message, Icons.ERROR);
             }
         }
 

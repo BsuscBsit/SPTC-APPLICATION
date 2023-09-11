@@ -9,18 +9,61 @@
     </Viewbox>
 
     <!-- You can define more icons here as needed -->
+    <Viewbox x:Key="OctagonWarning" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="112" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="20" Width="20" Margin="4">
+            <Path Stroke="#505050" Fill="yellow" StrokeThickness="1.5" Data="M5,0 L15,0 20,5 20,15 15,20 5,20 0,15 0,5 Z" />
 
-    <Viewbox x:Key="OctagonWarning" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="56" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Canvas Height="14" Width="14">
-            <Path Fill="#fef301" Data="M9.093499999999999 12.263642857142859a0.9285714285714286 0.9285714285714286 0 0 1 -0.6565 0.2720714285714286H4.563a0.9285714285714286 0.9285714285714286 0 0 1 -0.6565 -0.2720714285714286L0.7363571428571429 9.093499999999999A0.9285714285714286 0.9285714285714286 0 0 1 0.4642857142857143 8.437000000000001V4.563a0.9285714285714286 0.9285714285714286 0 0 1 0.2720714285714286 -0.6565L3.9065 0.7363571428571429A0.9285714285714286 0.9285714285714286 0 0 1 4.563 0.4642857142857143h3.8739999999999997a0.9285714285714286 0.9285714285714286 0 0 1 0.6565 0.2720714285714286l3.1701428571428574 3.1701428571428574a0.9285714285714286 0.9285714285714286 0 0 1 0.2720714285714286 0.6565v3.8739999999999997a0.9285714285714286 0.9285714285714286 0 0 1 -0.2720714285714286 0.6565l-3.1701428571428574 3.1701428571428574Z" StrokeThickness="1" />
-            <Path Stroke="#505050" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M9.093499999999999 12.263642857142859a0.9285714285714286 0.9285714285714286 0 0 1 -0.6565 0.2720714285714286H4.563a0.9285714285714286 0.9285714285714286 0 0 1 -0.6565 -0.2720714285714286L0.7363571428571429 9.093499999999999A0.9285714285714286 0.9285714285714286 0 0 1 0.4642857142857143 8.437000000000001V4.563a0.9285714285714286 0.9285714285714286 0 0 1 0.2720714285714286 -0.6565L3.9065 0.7363571428571429A0.9285714285714286 0.9285714285714286 0 0 1 4.563 0.4642857142857143h3.8739999999999997a0.9285714285714286 0.9285714285714286 0 0 1 0.6565 0.2720714285714286l3.1701428571428574 3.1701428571428574a0.9285714285714286 0.9285714285714286 0 0 1 0.2720714285714286 0.6565v3.8739999999999997a0.9285714285714286 0.9285714285714286 0 0 1 -0.2720714285714286 0.6565l-3.1701428571428574 3.1701428571428574Z" StrokeThickness="1" />
-            <Path Stroke="#505050" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M6.5 3.7142857142857144v3.017857142857143" StrokeThickness="1" />
-            <Canvas>
-                <Path Stroke="#505050" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M6.5 9.285714285714286a0.23214285714285715 0.23214285714285715 0 0 1 0 -0.4642857142857143" StrokeThickness="1" />
-                <Path Stroke="#505050" StrokeStartLineCap="round" StrokeEndLineCap="round" StrokeLineJoin="round" Data="M6.5 9.285714285714286a0.23214285714285715 0.23214285714285715 0 0 0 0 -0.4642857142857143" StrokeThickness="1" />
-            </Canvas>
+            <!-- Exclamation Mark Dot -->
+            <Path Stroke="#505050" Fill="#505050" Data="M10.8028,13.2114 C10.8028,13.6548 10.4434,14.0143 9.9999,14.0143 C9.5565,14.0143 9.197,13.6548 9.197,13.2114 C9.197,12.768 9.5565,12.4085 9.9999,12.4085 C10.4434,12.4085 10.8028,12.768 10.8028,13.2114 Z" StrokeThickness=".5" />
+
+            <!-- Exclamation Mark Line -->
+            <Path Stroke="#505050" Fill="#505050" Data="M9.197,6.7886 C9.197,6.3452 9.5565,5.9857 9.9999,5.9857 C10.4434,5.9857 10.8028,6.3452 10.8028,6.7886 V10 C10.8028,10.4434 10.4434,10.8029 9.9999,10.8029 C9.5565,10.8029 9.197,10.4434 9.197,10 V6.7886 Z" StrokeThickness=".5" />
         </Canvas>
     </Viewbox>
+
+
+
+
+    <Viewbox x:Key="CircleNotification" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="20" Width="20" Margin="2">
+            <Grid>
+                <!-- Circle Background -->
+                <Ellipse Width="20" Height="20" Fill="#0096ff" Stroke="#505050" StrokeThickness="1.5"/>
+
+                <!-- Exclamation Mark Dot -->
+                <Path Stroke="#505050" Fill="#505050" Data="M10.8028 13.2114C10.8028 13.6548 10.4434 14.0143 9.99996 14.0143C9.55655 14.0143 9.1971 13.6548 9.1971 13.2114C9.1971 12.768 9.55655 12.4085 9.99996 12.4085C10.4434 12.4085 10.8028 12.768 10.8028 13.2114Z" StrokeThickness=".5" />
+
+                <!-- Exclamation Mark Line -->
+                <Path Stroke="#505050" Fill="#505050" Data="M9.1971 6.78859C9.1971 6.34518 9.55655 5.98574 9.99996 5.98574C10.4434 5.98574 10.8028 6.34518 10.8028 6.78859V10C10.8028 10.4434 10.4434 10.8029 9.99996 10.8029C9.55655 10.8029 9.1971 10.4434 9.1971 10V6.78859Z" StrokeThickness=".5" />
+
+            </Grid>
+        </Canvas>
+    </Viewbox>
+
+
+    <Viewbox x:Key="DiamondError" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Canvas Height="20" Width="20">
+            <Grid>
+                <!-- Diamond Path -->
+                <Path Stroke="#505050" Fill="#FF6F61" Data="M11.4192 2.58787C10.6355 1.80404 9.36458 1.80404 8.58074 2.58787L2.58787 8.58074C1.80404 9.36458 1.80404 10.6355 2.58787 11.4192L8.58074 17.4122C9.36458 18.1959 10.6355 18.1959 11.4192 17.4122L17.4122 11.4192C18.1959 10.6355 18.1959 9.36458 17.4122 8.58074L11.4192 2.58787Z" StrokeThickness="1.5"/>
+
+                <!-- Exclamation Mark Line -->
+                <Path Stroke="#505050" Fill="#505050" Data="M9.1971 6.78859C9.1971 6.34518 9.55655 5.98574 9.99996 5.98574C10.4434 5.98574 10.8028 6.34518 10.8028 6.78859V10C10.8028 10.4434 10.4434 10.8029 9.99996 10.8029C9.55655 10.8029 9.1971 10.4434 9.1971 10V6.78859Z" StrokeThickness=".5" />
+
+                <!-- Exclamation Mark Dot -->
+                <Path Stroke="#505050" Fill="#505050" Data="M10.8028 13.2114C10.8028 13.6548 10.4434 14.0143 9.99996 14.0143C9.55655 14.0143 9.1971 13.6548 9.1971 13.2114C9.1971 12.768 9.55655 12.4085 9.99996 12.4085C10.4434 12.4085 10.8028 12.768 10.8028 13.2114Z" StrokeThickness=".5" />
+            </Grid>
+        </Canvas>
+    </Viewbox>
+
+
+
+
+
 
 </ResourceDictionary>
 
