@@ -422,6 +422,7 @@ namespace SPTC_APPLICATION.View
                         videoSource.SignalToStop();
                         videoSource.WaitForStop();
                         videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
+                        videoSource = null;
                     }
                 }
             }catch(Exception e)

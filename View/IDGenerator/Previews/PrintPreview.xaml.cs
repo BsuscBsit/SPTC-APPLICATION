@@ -343,7 +343,7 @@ namespace SPTC_APPLICATION.View
             g4Border.BorderBrush = Brushes.Black;
 
             // Switch is in the False state
-            btnPrintCurrent.Content = "Print Page 1";
+            btnPrintCurrent.Content = "PRINT PAGE 1";
             isFront = true;
             RenderIDs();
         }
@@ -360,7 +360,7 @@ namespace SPTC_APPLICATION.View
             g4Border.BorderBrush = brush;
 
             // Switch is in the True state
-            btnPrintCurrent.Content = "Print Page 2";
+            btnPrintCurrent.Content = "PRINT PAGE 2";
             isFront = false;
             RenderIDs();
         }
@@ -526,7 +526,7 @@ namespace SPTC_APPLICATION.View
                     if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
                     {
                         EventLogger.Post($"OUT :: Print Back page");
-                        SaveAndClearID();
+                        
                     }
                     else
                     {
