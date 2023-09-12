@@ -45,8 +45,8 @@ namespace SPTC_APPLICATION.View
                         messageicon.Content = circleNotificationIcon;
                         break;
                     case Icons.ERROR:
-                        Viewbox diamondError = (Viewbox)this.FindResource("OctagonError");
-                        messageicon.Content = diamondError;
+                        Viewbox OctagonErr = (Viewbox)this.FindResource("OctagonError");
+                        messageicon.Content = OctagonErr;
                         break;
                     default: break;
                 }

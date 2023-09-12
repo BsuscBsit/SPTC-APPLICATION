@@ -58,7 +58,7 @@ namespace SPTC_APPLICATION.View.IDGenerator.Hidden
                  * Pwede iadjust yung paper size, mag test print kahit yung mismong border lang
                  * ng ID. Tapos ito, pwede i-adjust.
                  * Itong margin na to ang iaadjust para maitulak yung front page paloob.*/
-                Thickness newMargin = new Thickness(24.67712, 0, 0, 0);
+                Thickness newMargin = new Thickness(AppState.PRINT_AJUSTMENTS, 0, 0, 0);
                 frontPage.Margin = newMargin;
 
 

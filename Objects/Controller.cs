@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using SPTC_APPLICATION.Database;
 using SPTC_APPLICATION.Properties;
 using SPTC_APPLICATION.View;
-using SPTC_APPLICATION.View.Pages;
 
 namespace SPTC_APPLICATION.Objects
 {
@@ -19,6 +18,8 @@ namespace SPTC_APPLICATION.Objects
             string database = Settings.Default.Database;
             string username = Settings.Default.Username;
             string password = Settings.Default.Password;
+            AppState.LoadFromJson();
+            AppState.SaveToJson();
 
             DatabaseConnection.Builder builder = CreateDatabaseConnectionBuilder(host, port, database, username, password);
 
@@ -56,7 +57,7 @@ namespace SPTC_APPLICATION.Objects
             }
 
             log.Text = DatabaseConnection.GetEnumDescription(builder.Log);
-            await Task.Delay(1000);
+            await Task.Delay(500);
 
             if (progressBar.Value == 100)
             {
@@ -68,6 +69,8 @@ namespace SPTC_APPLICATION.Objects
                 ShowSplashScreenAndCloseCurrent(window);
             }
         }
+
+        
 
         private static DatabaseConnection.Builder CreateDatabaseConnectionBuilder(string host, string port, string database, string username, string password)
         {

@@ -23,6 +23,7 @@ namespace SPTC_APPLICATION
             if (openWindowCount <= 0)
             {
                 EventLogger.Post("Main :: Application Closed");
+                AppState.SaveToJson();
             }
         }
         public void IncrementOpenWindowCount()
