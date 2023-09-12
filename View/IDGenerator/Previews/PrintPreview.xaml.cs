@@ -33,6 +33,13 @@ namespace SPTC_APPLICATION.View
             isFront = true;
             RenderIDs();
             checkIdCount();
+            if(idcount >= 4)
+            {
+                btnAddNew.IsEnabled = false;
+            } else
+            {
+                btnAddNew.IsEnabled = true;
+            }
 
             //Zoom Constructors
             InitializePanning();
@@ -346,7 +353,6 @@ namespace SPTC_APPLICATION.View
             RenderIDs();
             checkIdCount();
         }
-
 
         private void btnPage1_Click(object sender, RoutedEventArgs e)
         {

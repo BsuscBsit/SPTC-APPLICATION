@@ -192,7 +192,6 @@ namespace SPTC_APPLICATION.View
             
         }
 
-
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -302,7 +301,6 @@ namespace SPTC_APPLICATION.View
                 hasSign = true;
             }
         }
-
 
         private void btnPreview_Click(object sender, RoutedEventArgs e)
         {
