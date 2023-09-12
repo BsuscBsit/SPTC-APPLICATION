@@ -543,7 +543,6 @@ namespace SPTC_APPLICATION.View
                 printpaper.Close();
                 RenderIDs();
             }
-*/
         }
     }
 }
