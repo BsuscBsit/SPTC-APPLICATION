@@ -193,6 +193,12 @@
                     Content="ADD NEW ID"
                     Style="{StaticResource GenericButton}" />
                 <Button
+                    Height="40"
+                    Margin="0,0,0,20"
+                    Content="CLEAR"
+                    Style="{StaticResource GenericButton}"
+                    Visibility="Collapsed" />
+                <Button
                     x:Name="btnCancelp"
                     Width="135"
                     Height="40"
