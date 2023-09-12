@@ -314,6 +314,16 @@ namespace SPTC_APPLICATION.View
             {
                 Grid0Content.Visibility = Visibility.Collapsed;
                 btnPrint.Visibility = Visibility.Visible;
+                if (mGrid1 != null) {
+                    if (mGrid1.FrontPrint >= 1 && mGrid1.BackPrint >= 1)
+                    {
+                        btnClear.IsEnabled = true;
+                        btnClear.Visibility = Visibility.Visible;
+                    }
+                } else
+                {
+                    btnClear.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
@@ -528,6 +538,11 @@ namespace SPTC_APPLICATION.View
                     scrollViewer.ScrollToVerticalOffset(tvo);
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SaveAndClearID();
         }
     }
 }
