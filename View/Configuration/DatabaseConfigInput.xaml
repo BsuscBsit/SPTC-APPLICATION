@@ -210,22 +210,23 @@
                 <StackPanel
                     Grid.Row="2"
                     Margin="0,0,0,22"
-                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button
-                        Width="172"
+                        Height="40"
+                        Click="btnConnect_Click"
+                        Content="RETRY"
+                        Style="{StaticResource GenericButton}" Width="110" />
+                    <Button
                         Height="40"
                         Click="configProceed_Click"
                         Content="CONFIGURE"
-                        Style="{StaticResource GenericButton}" />
+                        Style="{StaticResource GenericButton}" Width="110" Margin="10,0,10,0" />
                     <Button
-                        Width="101"
                         Height="40"
-                        Margin="21,0,0,0"
                         Click="Button_Click"
                         Content="EXIT"
-                        Style="{StaticResource GenericButton}" />
+                        Style="{StaticResource GenericButton}" Width="110" />
                 </StackPanel>
             </Grid>
         </Border>
