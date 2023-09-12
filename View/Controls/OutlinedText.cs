@@ -221,6 +221,7 @@ namespace SPTC_APPLICATION.View
             outlinedTextBlock.InvalidateVisual();
         }
 
+        [Obsolete]
         private void EnsureFormattedText()
         {
             if (this.formattedText != null || this.Text == null)

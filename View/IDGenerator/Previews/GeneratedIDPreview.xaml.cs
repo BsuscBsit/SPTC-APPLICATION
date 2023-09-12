@@ -56,14 +56,25 @@ namespace SPTC_APPLICATION.View
 
     public class ID
     {
-        private Franchise franchise;
+        public Franchise franchise;
         private General type;
+        public int FrontPrint = 0;
+        public int BackPrint = 0;
 
         public ID(Franchise franchise, General type)
         {
             this.franchise = franchise;
             this.type = type;
             EventLogger.Post($"OUT :: ID Generation :  Body#: {franchise.bodynumber} type: {type.ToString()}");
+        }
+
+        public void incrementFrontPrint()
+        {
+            FrontPrint = FrontPrint + 1;
+        }
+        public void incrementBackPrint()
+        {
+            BackPrint = BackPrint + 1;
         }
 
         public System.Windows.Controls.Image RenderFrontID()

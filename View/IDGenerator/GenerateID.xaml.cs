@@ -159,19 +159,13 @@ namespace SPTC_APPLICATION.View
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            this.StopCamera();
             base.OnClosing(e);
-            if (videoSource != null)
-            {
-                if (videoSource.IsRunning)
-                {
-                    videoSource.SignalToStop();
-                    videoSource.WaitForStop();
-                }
-            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            this.StopCamera();
             PrintPreview print = new PrintPreview();
             print.Show();
             this.Close();
@@ -198,10 +192,6 @@ namespace SPTC_APPLICATION.View
             
         }
 
-        private void InitializeCamera()
-        {
-            if (videoSource != null) videoSource.Start();
-        }
 
         private void videoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -241,14 +231,11 @@ namespace SPTC_APPLICATION.View
                         pbCameraOpen.Value = pbCameraOpen.Minimum;
                         pbCameraOpen.IsIndeterminate = true;
 
-
-                        InitializeCamera();
+                        if (videoSource != null) videoSource.Start();
 
                         //Short delay. nag lalag/crash minsan pag binigla eh.
                         await Task.Delay(TimeSpan.FromSeconds(3));
                         btnStartCam.IsEnabled = true;
-
-
                     }
                     catch (Exception ex)
                     {
@@ -266,12 +253,7 @@ namespace SPTC_APPLICATION.View
                     }
                     hasPhoto = true;
 
-                    if (videoSource != null && videoSource.IsRunning)
-                    {
-                        videoSource.SignalToStop();
-                        videoSource.WaitForStop();
-                        videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
-                    }
+                    this.StopCamera();
                     pbCameraOpen.Value = 100;
                     pbCameraOpen.IsIndeterminate = false;
                 }
@@ -280,14 +262,7 @@ namespace SPTC_APPLICATION.View
 
         private void btnBrowseIDPic_Click(object sender, RoutedEventArgs e)
         {
-            if (videoSource != null)
-            {
-                if (videoSource.IsRunning)
-                {
-                    videoSource.SignalToStop();
-                    videoSource.WaitForStop();
-                }
-            }
+            this.StopCamera();
             var openFileDialog = new OpenFileDialog();
 
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
@@ -425,9 +400,36 @@ namespace SPTC_APPLICATION.View
             {
                 ControlWindow.ShowDialog("Input Fields incomplete!", "Missing some required inputs.");
             }
-
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource.WaitForStop();
+                videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
+            }
         }
 
-
+        public void StopCamera()
+        {
+            try
+            {
+                if (lastCapturedImage != null)
+                {
+                    imgIDPic.Source = lastCapturedImage;
+                }
+                hasPhoto = true;
+                if (videoSource != null)
+                {
+                    if (videoSource.IsRunning)
+                    {
+                        videoSource.SignalToStop();
+                        videoSource.WaitForStop();
+                        videoSource.NewFrame -= new NewFrameEventHandler(videoSource_NewFrame);
+                    }
+                }
+            }catch(Exception e)
+            {
+                ControlWindow.ShowDialog("Camera Error", e.Message, Icons.ERROR);
+            }
+        }
     }
 }

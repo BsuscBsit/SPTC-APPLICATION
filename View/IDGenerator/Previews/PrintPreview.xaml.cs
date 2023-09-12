@@ -211,7 +211,7 @@ namespace SPTC_APPLICATION.View
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
 
-            if (idcount >= 1)
+            /*if (idcount >= 1)
             {
                 PrintPaper printpaper = new PrintPaper();
                 if (printpaper.StartPrint(new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }, true))
@@ -220,6 +220,7 @@ namespace SPTC_APPLICATION.View
                     if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
                     {
                         EventLogger.Post($"OUT :: Print Back page");
+                        
                         mGrid1?.SaveInfo();
                         mGrid2?.SaveInfo();
                         mGrid3?.SaveInfo();
@@ -242,9 +243,53 @@ namespace SPTC_APPLICATION.View
                 printpaper.Close();
                 RenderIDs();
             }
-
+*/
+            if(idcount >= 1)
+            {
+                if (isFront)
+                {
+                    PrintPaper printpaper = new PrintPaper();
+                    if (printpaper.StartPrint(new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }, true))
+                    {
+                        EventLogger.Post($"OUT :: Print Front page");
+                    } else
+                    {
+                        EventLogger.Post($"OUT :: Print Front page Failed");
+                    }
+                }
+                else
+                {
+                    PrintPaper printpaper = new PrintPaper();
+                    if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
+                    {
+                        EventLogger.Post($"OUT :: Print Back page");
+                    } else {
+                        EventLogger.Post($"OUT :: Print Back page Failed");
+                    }
+                }
+            }
+            
             checkIdCount();
         }
+
+        private void SaveAndClearID()
+        {
+            //Save to database and clear print paper
+            mGrid1?.SaveInfo();
+            mGrid2?.SaveInfo();
+            mGrid3?.SaveInfo();
+            mGrid4?.SaveInfo();
+
+            ResetPrintData();
+            foreach (ID id in new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }) {
+                if(id != null)
+                {
+                    EventLogger.Post("ID :" + id.franchise.bodynumber + " Front page has been printed " + id.FrontPrint);
+                    EventLogger.Post("ID :" + id.franchise.bodynumber + " Back page has been printed " + id.BackPrint);
+                }
+            }
+        }
+
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
