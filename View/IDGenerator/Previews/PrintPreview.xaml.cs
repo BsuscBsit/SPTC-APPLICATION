@@ -264,6 +264,7 @@ namespace SPTC_APPLICATION.View
                     EventLogger.Post("ID :" + id.franchise.bodynumber + " Back page has been printed " + id.BackPrint);
                 }
             }
+            checkIdCount();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -342,6 +343,7 @@ namespace SPTC_APPLICATION.View
             g4Border.BorderBrush = Brushes.Black;
 
             // Switch is in the False state
+            btnPrintCurrent.Content = "Print Page 1";
             isFront = true;
             RenderIDs();
         }
@@ -358,6 +360,7 @@ namespace SPTC_APPLICATION.View
             g4Border.BorderBrush = brush;
 
             // Switch is in the True state
+            btnPrintCurrent.Content = "Print Page 2";
             isFront = false;
             RenderIDs();
         }
