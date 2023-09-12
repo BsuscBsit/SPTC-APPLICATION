@@ -36,9 +36,11 @@ namespace SPTC_APPLICATION.View
             if(idcount >= 4)
             {
                 btnAddNew.IsEnabled = false;
+                btnAddNew.Visibility = Visibility.Collapsed;
             } else
             {
                 btnAddNew.IsEnabled = true;
+                btnAddNew.Visibility = Visibility.Visible;
             }
 
             //Zoom Constructors
@@ -275,12 +277,10 @@ namespace SPTC_APPLICATION.View
             if (idcount == 0)
             {
                 Grid0Content.Visibility = Visibility.Visible;
-                btnPrint.Visibility = Visibility.Hidden;
             }
             else
             {
                 Grid0Content.Visibility = Visibility.Collapsed;
-                btnPrint.Visibility = Visibility.Visible;
                 if (mGrid1 != null) {
                     if (mGrid1.FrontPrint >= 1 && mGrid1.BackPrint >= 1)
                     {
@@ -540,7 +540,7 @@ namespace SPTC_APPLICATION.View
                 printpaper.Close();
                 RenderIDs();
             }
-*/
+
         }
     }
 }
