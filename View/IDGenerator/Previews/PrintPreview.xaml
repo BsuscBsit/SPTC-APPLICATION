@@ -177,12 +177,19 @@
                 Margin="20,0,0,0"
                 HorizontalAlignment="Center">
                 <Button
+                    x:Name="btnPrintCurrent"
+                    Width="135"
+                    Height="40"
+                    Click="btnPrint_Click"
+                    Content="PRINT PAGE 1"
+                    Style="{StaticResource GenericButton}" Margin="0,0,0,20" />
+                <Button
                     x:Name="btnPrint"
                     Width="135"
                     Height="40"
                     Margin="0,0,0,20"
                     Click="btnPrint_Click"
-                    Content="PRINT"
+                    Content="PRINT BOTH"
                     Style="{StaticResource GenericButton}" />
                 <Button
                     x:Name="btnAddNew"
