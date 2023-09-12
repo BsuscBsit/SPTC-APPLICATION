@@ -526,7 +526,7 @@ namespace SPTC_APPLICATION.View
                     if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
                     {
                         EventLogger.Post($"OUT :: Print Back page");
-                        
+                        checkIdCount();
                     }
                     else
                     {
