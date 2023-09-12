@@ -36,9 +36,11 @@ namespace SPTC_APPLICATION.View
             if(idcount >= 4)
             {
                 btnAddNew.IsEnabled = false;
+                btnAddNew.Visibility = Visibility.Collapsed;
             } else
             {
                 btnAddNew.IsEnabled = true;
+                btnAddNew.Visibility = Visibility.Visible;
             }
 
             //Zoom Constructors
@@ -218,39 +220,6 @@ namespace SPTC_APPLICATION.View
         private void btnPrint_Click(object sender, RoutedEventArgs e)
         {
 
-            /*if (idcount >= 1)
-            {
-                PrintPaper printpaper = new PrintPaper();
-                if (printpaper.StartPrint(new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }, true))
-                {
-                    EventLogger.Post($"OUT :: Print Front page");
-                    if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
-                    {
-                        EventLogger.Post($"OUT :: Print Back page");
-                        
-                        mGrid1?.SaveInfo();
-                        mGrid2?.SaveInfo();
-                        mGrid3?.SaveInfo();
-                        mGrid4?.SaveInfo();
-
-                        ResetPrintData();
-                    }
-                    else
-                    {
-                        EventLogger.Post($"OUT :: Print Back page FAILED");
-                    }
-
-                }
-                else
-                {
-                    EventLogger.Post($"OUT :: Print Front and Back page FAILED");
-                }
-
-                printpaper.Show();
-                printpaper.Close();
-                RenderIDs();
-            }
-*/
             if(idcount >= 1)
             {
                 if (isFront)
@@ -308,12 +277,10 @@ namespace SPTC_APPLICATION.View
             if (idcount == 0)
             {
                 Grid0Content.Visibility = Visibility.Visible;
-                btnPrint.Visibility = Visibility.Hidden;
             }
             else
             {
                 Grid0Content.Visibility = Visibility.Collapsed;
-                btnPrint.Visibility = Visibility.Visible;
                 if (mGrid1 != null) {
                     if (mGrid1.FrontPrint >= 1 && mGrid1.BackPrint >= 1)
                     {
@@ -543,6 +510,37 @@ namespace SPTC_APPLICATION.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SaveAndClearID();
+        }
+
+        private void btnPrintBoth_Click(object sender, RoutedEventArgs e)
+        {
+            if (idcount >= 1)
+            {
+                PrintPaper printpaper = new PrintPaper();
+                if (printpaper.StartPrint(new ID[] { mGrid1, mGrid2, mGrid3, mGrid4 }, true))
+                {
+                    EventLogger.Post($"OUT :: Print Front page");
+                    if (printpaper.StartPrint(new ID[] { mGrid2, mGrid1, mGrid4, mGrid3 }, false))
+                    {
+                        EventLogger.Post($"OUT :: Print Back page");
+                        SaveAndClearID();
+                    }
+                    else
+                    {
+                        EventLogger.Post($"OUT :: Print Back page FAILED");
+                    }
+
+                }
+                else
+                {
+                    EventLogger.Post($"OUT :: Print Front and Back page FAILED");
+                }
+
+                printpaper.Show();
+                printpaper.Close();
+                RenderIDs();
+            }
+
         }
     }
 }
