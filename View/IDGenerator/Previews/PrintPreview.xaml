@@ -172,48 +172,51 @@
 
                 </Grid>
             </ScrollViewer>
-            <StackPanel
-                Grid.Column="1"
-                Margin="20,0,0,0"
-                HorizontalAlignment="Center">
-                <Button
+            <Grid Grid.Column="1" Margin="13,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Button
                     x:Name="btnPrintCurrent"
                     Width="135"
                     Height="40"
                     Click="btnPrint_Click"
                     Content="PRINT PAGE 1"
-                    Style="{StaticResource GenericButton}" Margin="0,0,0,20" />
-                <Button
+                    Style="{StaticResource GenericButton}" Margin="8,0,8,20" />
+                    <Button
                     x:Name="btnPrint"
                     Width="135"
                     Height="40"
-                    Margin="0,0,0,20"
+                    Margin="8,0,8,20"
                     Click="btnPrint_Click"
                     Content="PRINT BOTH"
                     Style="{StaticResource GenericButton}" />
-                <Button
+                    <Button
                     x:Name="btnAddNew"
                     Width="135"
                     Height="40"
-                    Margin="0,0,0,20"
+                    Margin="8,0,8,20"
                     Click="btnAddNew_Click"
                     Content="ADD NEW ID"
                     Style="{StaticResource GenericButton}" />
-                <Button
+                    <Button
                     x:Name="btnClear"
                     Height="40"
-                    Margin="0,0,0,20"
+                    Margin="8,0,8,20"
                     Content="CLEAR"
                     Style="{StaticResource GenericButton}"
                     Visibility="Collapsed" Click="Button_Click" />
-                <Button
+                    <Button
                     x:Name="btnCancelp"
                     Width="135"
                     Height="40"
                     Click="btnCancel_Click"
                     Content="CANCEL"
-                    Style="{StaticResource GenericButton}" />
-                <Grid Margin="0,190,0,0" VerticalAlignment="Center">
+                    Style="{StaticResource GenericButton}" Margin="8,0,8,0" />
+                </StackPanel>
+                <Grid Grid.Row="1" VerticalAlignment="Top" Margin="0,0,0,23">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -263,7 +266,8 @@
                         Content="+"
                         Style="{StaticResource GenericButton}" />
                 </Grid>
-            </StackPanel>
+
+            </Grid>
             <Canvas
                 Grid.Column="0"
                 Width="181"
