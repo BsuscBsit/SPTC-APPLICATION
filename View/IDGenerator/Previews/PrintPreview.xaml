@@ -185,9 +185,6 @@
                     Click="btnPrint_Click"
                     Content="PRINT PAGE 1"
                     Style="{StaticResource GenericButton}" Margin="0,0,0,20" />
-                <Button
-                    x:Name="btnPrintBoth"
-                    Style="{StaticResource GenericButton}" Margin="8,0,8,20" />
                     <Button
                     x:Name="btnPrint"
                     Width="135"
@@ -195,8 +192,7 @@
                     Margin="0,0,0,20"
                     Content="PRINT BOTH"
                     Style="{StaticResource GenericButton}" Click="btnPrintBoth_Click" />
-                <Button
-                    Style="{StaticResource GenericButton}" />
+                
                     <Button
                     x:Name="btnAddNew"
                     Width="135"
