@@ -6,13 +6,7 @@
         xmlns:local="clr-namespace:SPTC_APPLICATION.View.Pages.FranchiseModule"
         mc:Ignorable="d"
         Title="Franchise" >
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/View/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+   
     <Grid>
         <Grid x:Name="franchisePanel" HorizontalAlignment="Right" Width="760" Background="LightGray">
             <Rectangle Height="40" Stroke="#FEF301" Fill="#FEF301"  VerticalAlignment="Top" Width="NaN"/>

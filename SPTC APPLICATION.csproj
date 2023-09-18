@@ -258,11 +258,29 @@
     <Compile Include="View\IDGenerator\Previews\PrintPreview.xaml.cs">
       <DependentUpon>PrintPreview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\FranchiseModule\Coding.xaml.cs">
+      <DependentUpon>Coding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FranchiseModule\History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FranchiseModule\LoanLedger.xaml.cs">
+      <DependentUpon>LoanLedger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FranchiseModule\ShareCapitalLedger.xaml.cs">
+      <DependentUpon>ShareCapitalLedger.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\FranchiseModule\TranseferHistory.xaml.cs">
+      <DependentUpon>TranseferHistory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Leaflets\TableView.xaml.cs">
       <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\MainBody.xaml.cs">
       <DependentUpon>MainBody.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\OperatorsModule\Operators.xaml.cs">
+      <DependentUpon>Operators.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Test.xaml.cs">
       <DependentUpon>Test.xaml</DependentUpon>
@@ -381,11 +399,47 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Pages\FranchiseModule\Coding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\Franchise.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\FranchiseManageForm\FranchiseForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\LoanLedger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\ShareCapitalLedger.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\TranseferHistory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\FranchiseModule\Violation\Violation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Pages\Leaflets\TableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\MainBody.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Pages\OperatorsModule\Operators.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
