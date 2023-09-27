@@ -11,7 +11,7 @@
 
 
         </Grid>
-        <Grid x:Name="franchiseInformation" HorizontalAlignment="Left" Height="402" Background="White" Margin="29,62,0,0" VerticalAlignment="Top" Width="680" >
+        <Grid x:Name="franchiseInformation" HorizontalAlignment="Left" Height="403" Background="White" Margin="33,66,0,0" VerticalAlignment="Top" Width="692" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="104*"/>
                 <RowDefinition Height="229*"/>
@@ -197,6 +197,92 @@
                 FontWeight="Bold"
                 FontSize="10"/>
 
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="512" Margin="170,71,0,0" Grid.Row="1"/>
+
+
+            <Label Content="DATE" HorizontalAlignment="Left" Margin="197,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" Width="60"/>
+            <Label Content="REF NO." HorizontalAlignment="Left" Margin="292,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="PRINCIPAL" HorizontalAlignment="Left" Margin="373,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="INTEREST" HorizontalAlignment="Left" Margin="450,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="PENALTIES" HorizontalAlignment="Left" Margin="530,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="AMOUNT" HorizontalAlignment="Left" Margin="615,72,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="12 - 03 - 2023" HorizontalAlignment="Left" Margin="185,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+            <Label Content="227041145" HorizontalAlignment="Left" Margin="288,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+            <Label Content="20.00" HorizontalAlignment="Left" Margin="387,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+            <Label Content="10.00" HorizontalAlignment="Left" Margin="463,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+            <Label Content="0.00" HorizontalAlignment="Left" Margin="552,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+            <Label Content="30.00" HorizontalAlignment="Left" Margin="629,100,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+
+            <Label Content="TOTAL : " HorizontalAlignment="Left" Margin="538,160,0,0" VerticalAlignment="Top"
+                    FontWeight="Medium"
+                    FontSize="9"
+                    Foreground="DarkGray" Grid.Row="1"/>
+
+            <Label Content="1130.00" HorizontalAlignment="Left" Margin="586,160,0,0" VerticalAlignment="Top"
+                    FontWeight="Medium"
+                   FontFamily="Hetivica"
+                    FontSize="11"
+                    Foreground="Red" Grid.Row="1"/>
 
 
         </Grid>

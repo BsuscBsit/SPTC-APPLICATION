@@ -198,6 +198,98 @@
                 FontSize="10"/>
 
 
+            <Label Content="0-1 MONDAY " HorizontalAlignment="Left" Margin="218,57,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+            <Label Content="2-3 WEDNESDAY " HorizontalAlignment="Left" Margin="357,57,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+            <Label Content="8-9 FRIDAY " HorizontalAlignment="Left" Margin="538,57,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+            <Label Content="2-3 TUESDAY " HorizontalAlignment="Left" Margin="218,88,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+            <Label Content="6-7 THURSDAY " HorizontalAlignment="Left" Margin="357,85,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+            <Label Content="FREE - SAT/SUN " HorizontalAlignment="Left" Margin="538,85,0,0" VerticalAlignment="Top"
+                FontWeight="Normal"
+                FontFamily="Arial"
+                FontSize="11"
+                Foreground="DarkGray" Grid.Row="1"/>
+
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="77" VerticalAlignment="Top" Width="477" Margin="175,119,0,0" Grid.Row="1"/>
+
+
+            <Label Content="BODY NO." HorizontalAlignment="Left" Margin="190,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1" Width="60"/>
+            <Label Content="MON" HorizontalAlignment="Left" Margin="280,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="10" Grid.Row="1"/>
+            <Label Content="TUE" HorizontalAlignment="Left" Margin="330,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1"/>
+            <Label Content="WED" HorizontalAlignment="Left" Margin="380,124,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1"/>
+            <Label Content="THU" HorizontalAlignment="Left" Margin="430,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1"/>
+            <Label Content="FRI" HorizontalAlignment="Left" Margin="480,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1"/>
+
+            <Label Content="SAT" HorizontalAlignment="Left" Margin="530,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1" RenderTransformOrigin="0.742,-0.478"/>
+
+            <Label Content="SUN" HorizontalAlignment="Left" Margin="580,125,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="DemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="11" Grid.Row="1"/>
+            <Label Content="101" HorizontalAlignment="Left" Margin="200,151,0,0" VerticalAlignment="Top"
+                Foreground="Black"
+                FontWeight="SemiBold"
+                FontFamily="Arial"
+                FontStretch="SemiExpanded"
+                FontSize="12" Grid.Row="1" RenderTransformOrigin="0.333,0.455"/>
+
+
 
         </Grid>
 
