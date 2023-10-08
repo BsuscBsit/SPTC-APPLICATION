@@ -276,6 +276,15 @@
     <Compile Include="View\Pages\FranchiseModule\TranseferHistory.xaml.cs">
       <DependentUpon>TranseferHistory.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\Inputs\ChangeOperator.xaml.cs">
+      <DependentUpon>ChangeOperator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Inputs\NewOperator.xaml.cs">
+      <DependentUpon>NewOperator.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\Inputs\ViolationInput.xaml.cs">
+      <DependentUpon>ViolationInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pages\Leaflets\TableView.xaml.cs">
       <DependentUpon>TableView.xaml</DependentUpon>
     </Compile>
@@ -435,6 +444,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\FranchiseModule\Violation\Violation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Inputs\ChangeOperator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Inputs\NewOperator.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\Inputs\ViolationInput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
